@@ -849,3 +849,34 @@ p {
 }
 ```
 
+# CSS Math Functions
+The CSS math functions allow mathematical expressions to be used as property values. Here, we will explain the `calc()`, `max()` and `min()` functions.
+### calc
+```css
+#div1 {  
+	position:  absolute;  
+	left:  50px;  
+	width:  calc(100% - 100px);  
+	border:  1px solid black;  
+	background-color:  yellow;  
+	padding:  5px;  
+}
+```
+### max
+Use `max()` to set the width of #div1 to whichever value is largest, `50% or 300px`
+```css
+#div1  {  
+	background-color:  yellow;  
+	height:  100px;  
+	width:  max(50%, 300px);  
+}
+```
+### min
+The `min()` function uses the smallest value, from a comma-separated list of values, as the property value.
+```css
+#div1 {  
+	background-color:  yellow;  
+	height:  100px;  
+	width:  min(50%, 300px);  
+}
+```
