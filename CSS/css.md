@@ -699,3 +699,153 @@ div.desc {
 
 ## on Mobile
 ![image](https://github.com/user-attachments/assets/bc9b5bc8-6b9b-4a15-a8aa-55d61559ad1d)
+
+
+## CSS [attribute] Selector
+
+The  `[attribute]`  selector is used to select elements with a specified attribute.
+
+The following example selects all `<a>` elements with a target attribute:
+```css
+a[target]  {  
+	background-color:  yellow;  
+}
+```
+for more visit: https://www.w3schools.com/css/css_attribute_selectors.asp
+
+
+
+## What is Specificity?
+
+If there are two or more CSS rules that point to the same element, the selector with the highest specificity value will "win", and its style declaration will be applied to that HTML element.
+
+Think of specificity as a score/rank that determines which style declaration is ultimately applied to an element.
+In this example, we have used the "p" element as selector, and specified a red color for this element. The text will be red:
+```html
+<html>  
+<head>  
+<style>  
+	p  {color:  red;}  
+</style>  
+</head>  
+	<body>  
+		<p>Hello World!</p>  
+	</body>  
+</html>
+```
+
+In this example, we have added a class selector (named "test"), and specified a green color for this class. The text will now be green (even though we have specified a red color for the element selector "p"). This is because the class selector is given higher priority:
+```html
+<html>  
+<head>  
+<style>  
+	.test  {color:  green;}  
+	p  {color:  red;}  
+</style>  
+</head>  
+<body>  
+	<p class="test">Hello World!</p>  
+</body>  
+</html>
+```
+In this example, we have added an inline style for the "p" element. The text will now be pink, because the inline style is given the highest priority:
+```html
+<html>  
+<head>  
+<style>  
+	#demo  {color:  blue;}  
+	.test  {color:  green;}  
+	p  {color:  red;}  
+</style>  
+</head>  
+<body>  
+	<p id="demo"  class="test"  style="color: pink;">Hello World!</p>  
+</body>  
+</html>
+```
+## Specificity Hierarchy
+
+Every CSS selector has its place in the specificity hierarchy.
+
+There are four categories which define the specificity level of a selector:
+
+1.  **Inline styles**  ` <h1 style="color: pink;">`
+2.  **IDs**  ` #navbar`
+3.  **Classes, pseudo-classes, attribute selectors**  ` .test, :hover, [href]`
+4.  **Elements and pseudo-elements**  ` h1, ::before`
+
+## How to Calculate Specificity?
+
+Memorize how to calculate specificity!
+
+Start at 0, add 100 for each ID value, add 10 for each class value (or pseudo-class or attribute selector), add 1 for each element selector or pseudo-element.
+
+| Selector            | Specificity Value | Calculation            |
+|---------------------|-------------------|------------------------|
+| `p`                 | 1                 | 1                      |
+| `p.test`            | 11                | 1 + 10                 |
+| `p#demo`            | 101               | 1 + 100                |
+| `<p style="color: pink;">` | 1000        | 1000                   |
+| `#demo`             | 100               | 100                    |
+| `.test`             | 10                | 10                     |
+| `p.test1.test2`     | 21                | 1 + 10 + 10            |
+| `#navbar p#demo`    | 201               | 100 + 1 + 100          |
+| `*`                 | 0                 | 0 (the universal selector is ignored) |
+
+-  Example
+```
+A: h1  
+B: h1#content  
+C:  <h1 id="content"  style="color: pink;">Heading</h1>
+```
+The specificity of A is 1 (one element selector)  
+The specificity of B is 101 (one ID reference + one element selector)  
+The specificity of C is 1000 (inline styling)
+
+Since the third rule (C) has the highest specificity value (1000), this style declaration will be applied.
+
+## **Equal specificity: the latest rule wins** 
+If the same rule is written twice into the external style sheet, then the latest rule wins:
+
+### Example
+```html
+h1  {background-color:  yellow;}  
+h1  {background-color:  red;}
+```
+## can you explain what will be the output color?
+```
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+	div#a {background-color: green;}
+	#a {background-color: yellow;}
+	div[id=a] {background-color: blue;}
+</style>
+</head>
+<body>
+	<div id="a">This is a div</div>
+</body>
+</html>
+```
+it is green. explain now.
+
+## What is !important?
+
+The  `!important`  rule in CSS is used to add more importance to a property/value than normal.
+
+In fact, if you use the  `!important`  rule, it will override ALL previous styling rules for that specific property on that element!
+```html
+#myid {  
+	background-color:  blue;  
+}  
+  
+.myclass {  
+	background-color:  gray;  
+}  
+  
+p {  
+	background-color:  red  !important;  
+}
+```
+
