@@ -528,3 +528,174 @@ Create a dropdown box that appears when the user moves the mouse over an element
 ```
 ![image](https://github.com/user-attachments/assets/a3724a51-c524-4254-b88f-320ac6698008)
 
+## CSS Dropdown
+
+Create a dropdown box that appears when the user moves the mouse over an element.
+
+```html
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+.dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #f9f9f9;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 1;
+}
+
+.dropdown:hover .dropdown-content {
+  display: block;
+}
+
+.desc {
+  padding: 15px;
+  text-align: center;
+}
+</style>
+</head>
+<body>
+
+<h2>Dropdown Image</h2>
+<p>Move the mouse over the image below to open the dropdown content.</p>
+
+<div class="dropdown">
+  <img src="img_5terre.jpg" alt="Cinque Terre" width="100" height="50">
+  <div class="dropdown-content">
+  <img src="img_5terre.jpg" alt="Cinque Terre" width="300" height="200">
+  <div class="desc">Beautiful Cinque Terre</div>
+  </div>
+</div>
+
+</body>
+</html>
+```
+![image](https://github.com/user-attachments/assets/a3724a51-c524-4254-b88f-320ac6698008)
+## Image Gallery
+
+The following image gallery is created with CSS:
+```html
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+
+div.gallery {
+  border: 1px solid #ccc;
+}
+
+div.gallery:hover {
+  border: 1px solid #777;
+  transform:scale(1.1);
+  box-shadow: 0px 0px 15px 5px rgba(0,0,0,0.5);
+  
+}
+
+div.gallery img {
+  width: 100%;
+  height: auto;
+}
+
+div.desc {
+  padding: 15px;
+  text-align: center;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+.responsive {
+  padding: 0 6px;
+  float: left;
+  width: 24.99999%;
+}
+
+@media only screen and (max-width: 700px) {
+  .responsive {
+    width: 49.99999%;
+    margin: 6px 0;
+  }
+}
+
+@media only screen and (max-width: 500px) {
+  .responsive {
+    width: 100%;
+  }
+}
+
+.clearfix:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+</style>
+</head>
+<body>
+
+<h2>Responsive Image Gallery</h2>
+
+<h4>Resize the browser window to see the effect.</h4>
+
+<div class="responsive">
+  <div class="gallery">
+    <a target="_blank" href="img_5terre.jpg">
+      <img src="img_5terre.jpg" alt="Cinque Terre" width="600" height="400">
+    </a>
+    <div class="desc">Add a description of the image here</div>
+  </div>
+</div>
+
+
+<div class="responsive">
+  <div class="gallery">
+    <a target="_blank" href="img_forest.jpg">
+      <img src="img_forest.jpg" alt="Forest" width="600" height="400">
+    </a>
+    <div class="desc">Add a description of the image here</div>
+  </div>
+</div>
+
+<div class="responsive">
+  <div class="gallery">
+    <a target="_blank" href="img_lights.jpg">
+      <img src="img_lights.jpg" alt="Northern Lights" width="600" height="400">
+    </a>
+    <div class="desc">Add a description of the image here</div>
+  </div>
+</div>
+
+<div class="responsive">
+  <div class="gallery">
+    <a target="_blank" href="img_mountains.jpg">
+      <img src="img_mountains.jpg" alt="Mountains" width="600" height="400">
+    </a>
+    <div class="desc">Add a description of the image here</div>
+  </div>
+</div>
+
+<div class="clearfix"></div>
+
+<div style="padding:6px;">
+  <p>This example use media queries to re-arrange the images on different screen sizes: for screens larger than 700px wide, it will show four images side by side, for screens smaller than 700px, it will show two images side by side. For screens smaller than 500px, the images will stack vertically (100%).</p>
+  <p>You will learn more about media queries and responsive web design later in our CSS Tutorial.</p>
+</div>
+
+</body>
+</html>
+```
+## on windows
+![image](https://github.com/user-attachments/assets/a8d6933b-9c94-467f-b8e1-9db7e47961e7)
+
+## on Tablet
+![image](https://github.com/user-attachments/assets/d493abf9-9067-4939-a254-d77e0d7f2437)
+
+## on Mobile
+![image](https://github.com/user-attachments/assets/bc9b5bc8-6b9b-4a15-a8aa-55d61559ad1d)
