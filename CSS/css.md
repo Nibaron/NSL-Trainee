@@ -442,4 +442,89 @@ div ~ p {
 ```
 ![image](https://github.com/user-attachments/assets/591c4a0f-d413-4c8b-8464-90e21e5bb37a)
 
+## What are Pseudo-classes?
+
+A pseudo-class is used to define a special state of an element.
+
+For example, it can be used to:
+
+-   Style an element when a user mouses over it
+-   Style visited and unvisited links differently
+-   Style an element when it gets focus
+
+## Anchor Pseudo-classes
+
+Links can be displayed in different ways:
+```html
+/* unvisited link */  
+a:link {  
+color:  #FF0000;  
+}  
+  
+/* visited link */  
+a:visited {  
+color:  #00FF00;  
+}  
+  
+/* mouse over link */  
+a:hover {  
+color:  #FF00FF;  
+}  
+  
+/* selected link */  
+a:active {  
+color:  #0000FF;  
+}
+```
+
+## CSS Dropdown
+
+Create a dropdown box that appears when the user moves the mouse over an element.
+
+```html
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+.dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #f9f9f9;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 1;
+}
+
+.dropdown:hover .dropdown-content {
+  display: block;
+}
+
+.desc {
+  padding: 15px;
+  text-align: center;
+}
+</style>
+</head>
+<body>
+
+<h2>Dropdown Image</h2>
+<p>Move the mouse over the image below to open the dropdown content.</p>
+
+<div class="dropdown">
+  <img src="img_5terre.jpg" alt="Cinque Terre" width="100" height="50">
+  <div class="dropdown-content">
+  <img src="img_5terre.jpg" alt="Cinque Terre" width="300" height="200">
+  <div class="desc">Beautiful Cinque Terre</div>
+  </div>
+</div>
+
+</body>
+</html>
+```
+![image](https://github.com/user-attachments/assets/a3724a51-c524-4254-b88f-320ac6698008)
 
