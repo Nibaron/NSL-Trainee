@@ -929,3 +929,53 @@ body {
 </html>
 ```
 ![image](https://github.com/user-attachments/assets/d5d01ad7-27c4-4936-b06f-491033d4a775)
+
+# CSS  The object-fit Property
+The CSS `object-fit` property is used to specify how an <img> or <video> should be resized to fit its container.
+This property tells the content to fill the container in a variety of ways; such as "preserve that aspect ratio" or "stretch up and take up as much space as possible".
+
+Look at the following image from Paris. This image is 400 pixels wide and 300 pixels high:
+
+![Paris](https://www.w3schools.com/css/paris.jpg)
+
+However, if we style the image above to be half its width (200 pixels) and same height (300 pixels), it will look like this:
+
+<img src="https://www.w3schools.com/css/paris.jpg" alt="Paris" width="200px" height="300px">
+<br>
+Here, we used `object-fit: fill;` as it is default. the image is resized to fill the given dimension. If necessary, the image will be stretched or squished to fit:
+```css
+img {  
+width:  200px;  
+height:  300px;  
+object-fit:  fill;  
+}
+```
+## Using object-fit: cover;
+
+If we use  `object-fit: cover;`  the image keeps its aspect ratio and fills the given dimension. The image will be clipped to fit:
+
+```css
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+img {
+  width: 200px;
+  height: 300px;
+  object-fit: cover;
+}
+</style>
+</head>
+<body>
+
+<h2>Using object-fit: cover</h2>
+
+<img src="paris.jpg" alt="Paris" width="400" height="300">
+
+</body>
+</html>
+```
+
+![image](https://github.com/user-attachments/assets/d0353b26-cc2f-4dfd-80be-759e6fc049ec)
+
+
