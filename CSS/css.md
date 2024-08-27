@@ -1041,3 +1041,153 @@ img {
 
 ![image](https://github.com/user-attachments/assets/eb57e6f6-ec2c-4c4a-96b4-e53b49b6e0a8)
 
+
+# CSS  Masking
+With CSS masking you create a mask layer to place over an element to partially or fully hide portions of the element.
+## The CSS mask-image Property
+
+The CSS  `mask-image`  property specifies a mask layer image.
+
+The mask layer image can be a PNG image, an SVG image, a  [CSS gradient](https://www.w3schools.com/css/css3_gradients.asp), or an  [SVG <mask> element](https://www.w3schools.com/graphics/svg_intro.asp).
+## Use an Image as the Mask Layer
+
+To use a PNG or an SVG image as the mask layer, use a url() value to pass in the mask layer image.
+
+The mask image needs to have a transparent or semi-transparent area. Black indicates fully transparent.
+Now, we apply the mask image (the PNG image w3schools) as the mask layer for the image from Cinque Terre, Italy:
+```css
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+.mask1 {
+	-webkit-mask-image: url(w3logo.png); /* For older WebKit-based browsers */ 
+	mask-image: url(w3logo.png); /* For modern browsers */ 
+	-webkit-mask-repeat: no-repeat; 
+	mask-repeat: no-repeat;   
+}
+</style>
+</head>
+<body>
+
+<h1>The mask-image Property</h1>
+
+<h3>An image with a mask layer image:</h3>
+<div class="mask1">
+<img src="img_5terre.jpg" alt="Cinque Terre" width="600" height="400">
+</div>
+
+</body>
+</html>
+
+
+```
+![image](https://github.com/user-attachments/assets/fb25f798-c2a9-42e6-895b-a23ef3bcf37c)
+
+The  `mask-image`  property specifies the image to be used as a mask layer for an element.
+
+The  `mask-repeat`  property specifies if or how a mask image will be repeated. The  `no-repeat`  value indicates that the mask image will not be repeated (the mask image will only be shown once).
+
+for details, visit,  https://www.w3schools.com/css/css3_masking.asp
+
+# CSS  Pagination Examples
+If you have a website with lots of pages, you may wish to add some sort of pagination to each page:
+```html
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+  .pagination {
+    display: inline-block;
+  }
+
+  .pagination a {
+    color: black;
+    float: left;
+    padding: 8px 16px;
+    text-decoration: none;
+    transition: background-color .3s;
+    border: 1px solid #ddd;
+    font-size: 22px;
+  }
+
+  .pagination a.active {
+    background-color: red;
+    color: white;
+    border: 1px solid #4CAF50;
+  }
+
+  .pagination a:hover:not(.active) {
+  background-color: orange;
+  }
+</style>
+</head>
+<body>
+
+<h2>Pagination Size</h2>
+
+<p>Change the font-size property to make the pagination smaller or bigger.</p>
+
+<div class="pagination">
+  <a href="#">&laquo;</a>
+  <a href="#">1</a>
+  <a href="#" class="active">2</a>
+  <a href="#">3</a>
+  <a href="#">4</a>
+  <a href="#">5</a>
+  <a href="#">6</a>
+  <a href="#">&raquo;</a>
+</div>
+
+</body>
+</html>
+
+
+```
+
+![image](https://github.com/user-attachments/assets/66187cfe-b1cc-45be-8889-55bc0b20518c)
+
+## Breadcrumbs
+
+Another variation of pagination is so-called "breadcrumbs":
+```html
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+ul.breadcrumb {
+  padding: 8px 16px;
+  list-style: none;
+  background-color: #eee;
+}
+
+ul.breadcrumb li {display: inline;}
+
+ul.breadcrumb li+li:before {
+  padding: 8px;
+  color: black;
+  content: "/\00a0";
+}
+
+ul.breadcrumb li a {color: green;}
+</style>
+</head>
+<body>
+
+<h2>Breadcrumb Pagination</h2>
+
+<ul class="breadcrumb">
+  <li><a href="#">Home</a></li>
+  <li><a href="#">Pictures</a></li>
+  <li><a href="#">Summer 15</a></li>
+  <li>Italy</li>
+</ul>
+
+</body>
+</html>
+
+
+```
+![image](https://github.com/user-attachments/assets/1d5f93cf-b736-44a9-ac2f-008e025df043)
+
+
