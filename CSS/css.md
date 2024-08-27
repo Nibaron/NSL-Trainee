@@ -1191,3 +1191,136 @@ ul.breadcrumb li a {color: green;}
 ![image](https://github.com/user-attachments/assets/1d5f93cf-b736-44a9-ac2f-008e025df043)
 
 
+
+**CSS Media Queries** are a fundamental feature in CSS that allow you to apply styles based on the characteristics of the device or the viewport rendering the content. Media queries are commonly used to create responsive designs, ensuring that a website looks good on all devices, from large desktop monitors to small mobile screens.
+
+### Basic Syntax
+
+```css
+@media media-type and (media-feature) {
+  /* CSS rules */
+}
+```
+
+### Components of Media Queries:
+
+1. **`@media` Rule**: This is how you start a media query in CSS.
+2. **Media Type**: Specifies the type of device you are targeting, such as `screen`, `print`, `all`, etc.
+3. **Media Feature**: Defines specific characteristics like `width`, `height`, `orientation`, `resolution`, etc., which you can use to apply styles conditionally.
+
+### Example 1: Basic Media Query
+
+```css
+/* Default styles */
+body {
+  background-color: lightblue;
+}
+
+/* Styles for screens larger than 600px */
+@media screen and (min-width: 600px) {
+  body {
+    background-color: coral;
+  }
+}
+```
+
+- **Explanation**: The background color of the body will be light blue by default. However, if the screen width is 600 pixels or more, the background color changes to coral.
+
+### Example 2: Media Query for Different Devices
+
+```css
+/* Styles for mobile phones */
+@media only screen and (max-width: 600px) {
+  body {
+    font-size: 14px;
+  }
+}
+
+/* Styles for tablets */
+@media only screen and (min-width: 601px) and (max-width: 1024px) {
+  body {
+    font-size: 18px;
+  }
+}
+
+/* Styles for desktops */
+@media only screen and (min-width: 1025px) {
+  body {
+    font-size: 20px;
+  }
+}
+```
+
+- **Explanation**: 
+  - On devices with a screen width of 600px or less (mobile phones), the font size is set to 14px.
+  - On devices with a screen width between 601px and 1024px (tablets), the font size is set to 18px.
+  - On devices with a screen width of 1025px or more (desktops), the font size is set to 20px.
+
+### Example 3: Media Query for Orientation
+
+```css
+/* Styles for landscape orientation */
+@media screen and (orientation: landscape) {
+  body {
+    background-color: lightgreen;
+  }
+}
+
+/* Styles for portrait orientation */
+@media screen and (orientation: portrait) {
+  body {
+    background-color: lightpink;
+  }
+}
+```
+
+- **Explanation**: 
+  - When the device is in landscape orientation (wider than it is tall), the background color is light green.
+  - When the device is in portrait orientation (taller than it is wide), the background color is light pink.
+
+### Example 4: Using Media Queries with Flexbox or Grid
+
+```css
+.container {
+  display: flex;
+  flex-direction: column;
+}
+
+/* When the screen is wider than 768px, arrange items in a row */
+@media screen and (min-width: 768px) {
+  .container {
+    flex-direction: row;
+  }
+}
+```
+
+- **Explanation**: By default, the flex container displays its items in a column. But when the screen width exceeds 768px, it changes the direction to row, rearranging items horizontally.
+
+### Example 5: Retina Display (High DPI)
+
+```css
+@media only screen and (-webkit-min-device-pixel-ratio: 2),
+       only screen and (min-resolution: 192dpi) {
+  /* High-resolution images or other styles */
+}
+```
+
+- **Explanation**: This media query targets devices with high pixel density, like Retina displays, and applies specific styles or images optimized for these screens.
+
+### Practical Use:
+
+- **Responsive Web Design**: Media queries are essential for responsive web design, allowing web pages to adjust their layout and appearance based on the screen size and orientation of the device.
+  
+- **Print Styles**: Media queries can also target print styles, ensuring that your webpage looks good when printed.
+
+```css
+@media print {
+  body {
+    font-size: 12pt;
+  }
+}
+```
+
+### Conclusion:
+
+CSS Media Queries are a powerful tool for creating flexible and responsive designs that work well across a wide range of devices and screen sizes. They enable developers to tailor the appearance of their websites to provide an optimal user experience on any device.
