@@ -880,3 +880,52 @@ The `min()` function uses the smallest value, from a comma-separated list of val
 	width:  min(50%, 300px);  
 }
 ```
+## Hero Image
+
+You could also use different background properties on a `<div>` to create a hero image (a large image with text), and place it where you want.
+
+```html
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+body {
+  margin: 0;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.hero-image {
+  background: url(img_man.jpg) no-repeat center; 
+  background-size: cover;
+  height: 500px;
+  position: relative;
+}
+
+.hero-text {
+  text-align: center;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: white;
+}
+</style>
+</head>
+<body>
+
+<div class="hero-image">
+  <div class="hero-text">
+    <h1 style="font-size:50px">I am John Doe</h1>
+    <h3>And I'm a Photographer</h3>
+    <button>Hire me</button>
+  </div>
+</div>
+
+<p>Page content..</p>
+<p>Note that this technique will also make the image responsive: Resize the browser window to see the effect.</p>
+
+</body>
+</html>
+```
+![image](https://github.com/user-attachments/assets/d5d01ad7-27c4-4936-b06f-491033d4a775)
