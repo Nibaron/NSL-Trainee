@@ -979,3 +979,65 @@ img {
 ![image](https://github.com/user-attachments/assets/d0353b26-cc2f-4dfd-80be-759e6fc049ec)
 
 
+## Using the object-position Property
+
+Let's say that the part of the image that is shown, is not positioned as we want. To position the image, we will use the  `object-position`  property.
+
+Here we will use the  `object-position`  property to position the image so that the great old building is in center:
+```css
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+img {
+  width: 200px;
+  height: 300px;
+  object-fit: cover;
+  object-position: 80% 100%;
+}
+</style>
+</head>
+<body>
+
+<h2>Using object-position</h2>
+
+<p>Here we will use the object-position property to position the image so that the great old building is in center:</p>
+
+<img src="paris.jpg" alt="Paris" width="400" height="300">
+
+</body>
+</html>
+
+```
+![image](https://github.com/user-attachments/assets/db1b259e-2c67-4e0b-b8ce-3f058d2e38eb)
+
+Here we will use the `object-position` property to position the image so that the famous Eiffel Tower is in center:
+```css
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+img {
+  width: 200px;
+  height: 300px;
+  object-fit: cover;
+  object-position: 15% 100%;
+}
+</style>
+</head>
+<body>
+
+<h2>Using object-position</h2>
+
+<p>Here we will use the object-position property to position the image so that the famous Eiffel Tower is in center:</p>
+
+<img src="paris.jpg" alt="Paris" width="400" height="300">
+
+</body>
+</html>
+
+
+```
+
+![image](https://github.com/user-attachments/assets/eb57e6f6-ec2c-4c4a-96b4-e53b49b6e0a8)
+
