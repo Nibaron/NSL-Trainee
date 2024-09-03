@@ -519,3 +519,175 @@ h1::before {
     <td>Selects the portion of an element that is selected by a user</td>
   </tr>
 </tbody></table>
+
+
+
+# Bootstrap 4 
+
+Bootstrap 4 introduced several enhancements and new components to improve design flexibility, responsiveness, and overall user experience. Below are the key improvements-
+ - **Flexbox**
+ -  **Card Component**
+ -  **Badges**
+ -  **Spinners**
+ -  **Utilities**
+ -  **Typography** 
+ - **Navbar** 
+ - **Icons**
+
+## 1. Flexbox Support
+Bootstrap 4 uses Flexbox as its default layout module, replacing the float-based layout from previous versions. 
+This allows for:
+- **Better Alignment:** Align items horizontally and vertically within containers with ease.
+- **Equal Height Columns:** Flexbox allows for equal height columns in a row without additional CSS.
+- **Reordering:** Change the order of columns and items without altering the HTML structure.
+
+### Example:
+```html
+<div class="container mt-3">
+  <h2>Inline Flex</h2>
+  <div class="d-inline-flex p-3 bg-secondary text-white">  
+    <div class="p-2 bg-info">Flex item 1</div>
+    <div class="p-2 bg-warning">Flex item 2</div>
+    <div class="p-2 bg-primary">Flex item 3</div>
+  </div>
+</div>
+```
+![image](https://github.com/user-attachments/assets/b33d3206-9180-41fd-afaa-c51acd9f1425)
+
+## 2. Card Component
+
+The Card component in Bootstrap 4 is a flexible content container that can include headers, footers, images, and more. It replaces panels, wells, and thumbnails from Bootstrap 3.
+
+### Features:
+
+-   **Customizable Content:** Cards can include images, titles, text, and links.
+-   **Responsive Layouts:** Cards can be grouped into decks and columns for responsive layouts.
+-   **Contextual Backgrounds:** Cards can be styled with different backgrounds and border colors.
+
+### Example:
+
+```html
+<div class="container">
+
+  <div class="card" style="width:400px">
+    <img class="card-img-top" src="img_avatar1.png" alt="Card image" style="width:100%">
+    <div class="card-body">
+      <h4 class="card-title">John Doe</h4>
+      <p class="card-text">John Doe is an architect and engineer</p>
+      <a href="#" class="btn btn-primary">See Profile</a>
+    </div>
+  </div>
+  <br>
+  
+</div>
+```
+![image](https://github.com/user-attachments/assets/09168f72-b8af-436c-8d51-e170e69ed227)
+
+## 3. Badges
+
+Badges in Bootstrap 4 are used to add small counters or labels next to text or icons.
+
+### Features:
+
+-   **Color Variants:** Badges can be styled with different background colors.
+-   **Pill Badges:** Use the `.badge-pill` class for rounded badges.
+
+### Example:
+
+```html
+<button type="button"  class="btn btn-primary">  
+Messages <span class="badge badge-light">4</span>  
+</button>
+```
+![image](https://github.com/user-attachments/assets/f7507a85-1b7c-497e-8c3e-928e8f6c71a6)
+
+
+## 4. Spinners
+
+Bootstrap 4 introduced spinners as a lightweight and flexible component for indicating loading states.
+
+### Features:
+
+-   **Built with HTML and CSS:** No JavaScript required.
+-   **Customizable Size and Color:** Change the size and color with utility classes.
+
+### Example:
+
+```html
+<div class="spinner-border text-primary" role="status">
+  <span class="sr-only">Loading...</span>
+</div>
+```
+
+
+## 5. Utilities
+
+Bootstrap 4 added numerous utility classes for faster styling and layout adjustments without writing custom CSS.
+
+### Key Utilities:
+
+-   **Spacing:** `.m-3`, `.p-2`, etc., for margin and padding.
+-   **Display:** `.d-none`, `.d-block`, `.d-flex`, etc., for controlling element display.
+-   **Text:** `.text-center`, `.text-uppercase`, etc., for text alignment and transformation.
+
+### Example:
+```html
+<div class="text-center p-5 bg-light">
+  Centered text with padding and background
+</div>
+``` 
+
+## 6. Typography
+
+Bootstrap 4 made significant improvements to typography with:
+
+-   **Responsive Font Sizes:** Typography scales more efficiently across devices.
+-   **New Headings Classes:** Additional utility classes like `.display-1`, `.display-2`, etc., for larger headings.
+
+### Example:
+
+```html
+<h1 class="display-4">Display 4 heading</h1>
+<p class="lead">This is a lead paragraph.</p>
+``` 
+## 7. Navbar
+
+The Navbar in Bootstrap 4 is more flexible and easier to customize.
+
+### Features:
+
+-   **Responsive Behavior:** Automatically collapses into a hamburger menu on smaller screens.
+-   **Alignment Options:** Use `.justify-content-center` or `.ml-auto` for aligning navbar content.
+-   **Custom Backgrounds:** Change navbar background color using utility classes.
+
+### Example:
+```html
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <a class="navbar-brand" href="#">Navbar</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="navbarNav">
+    <ul class="navbar-nav">
+      <li class="nav-item active">
+        <a class="nav-link" href="#">Home</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#">Features</a>
+      </li>
+    </ul>
+  </div>
+</nav>
+``` 
+
+## 8. Icons
+
+Bootstrap 4 doesn't include its own icon library. However, it's easy to integrate with popular libraries like Font Awesome.
+
+### Example:
+```html
+<i class="fa fa-home"></i>
+```
+## Conclusion
+
+Bootstrap 4 introduced significant enhancements, making it more powerful and user-friendly compared to its predecessors. The introduction of Flexbox, the card component, and various utilities provides developers with a flexible framework to create responsive and modern web designs efficiently.
