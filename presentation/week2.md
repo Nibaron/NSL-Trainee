@@ -1,8 +1,17 @@
-## CSS Selectors & Properties
+## CSS and Bootstrap 4
+## Table of Contents
+
+1. [CSS Selectors](#css-selectors) 
+2. [What is Specificity?](#what-is-specificity)
+3. [CSS Combinator](#css-combinator)
+4. [Pseudo-classes](#what-are-pseudo-classes?)
+5. [Pseudo-elements](#what-are-pseudo-elements?)
+6. [Bootstrap 4](#bootstrap-4)
+
+
+
+## CSS Selectors
 CSS is really good at many things, but it’s _really_, really good at two specific things: **selecting elements** and **styling them**.
-
-## CSS SELECTORS
-
 A selector is simply the element to be styled. But as you write more CSS code, you'll discover that selectors aren't just elements. They could be attributes, pseudo-classes, ids, classes, and descendants.  
 
 According to W3resource, "_CSS selectors select the elements on an HTML page which match patterns described in a selector and style rules adhere to the selector are applied on those selected elements_".
@@ -522,7 +531,7 @@ h1::before {
 
 
 
-# Bootstrap 4 
+## Bootstrap 4 
 
 Bootstrap 4 introduced several enhancements and new components to improve design flexibility, responsiveness, and overall user experience. Below are the key improvements-
  - **Flexbox**
