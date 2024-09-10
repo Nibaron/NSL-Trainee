@@ -12,10 +12,12 @@
 
 ## CSS Selectors
 CSS is really good at many things, but it’s _really_, really good at two specific things: **selecting elements** and **styling them**.
+
+
 A selector is simply the element to be styled. But as you write more CSS code, you'll discover that selectors aren't just elements. They could be attributes, pseudo-classes, ids, classes, and descendants.  
 
 According to W3resource, "_CSS selectors select the elements on an HTML page which match patterns described in a selector and style rules adhere to the selector are applied on those selected elements_".
-![CSS Syntaxt, Properties, Selectors, Values](https://cdn.codecoda.com/themes/user/site/default/asset/img/blog/css-syntax-definition.jpg)
+![CSS Syntax, Properties, Selectors, Values](https://cdn.codecoda.com/themes/user/site/default/asset/img/blog/css-syntax-definition.jpg)
 
 
 ### Universal Selector
@@ -41,7 +43,7 @@ p{
 This code targets all paragraphs in a document and changes them to italics.
 
 
-###  **Class Selector**
+### Class Selector
 
 Classes are a versatile way to apply styles to multiple elements. By using the `.` selector in CSS, you can target all elements that share the same class.
 
@@ -59,7 +61,7 @@ Classes are a versatile way to apply styles to multiple elements. By using the `
 -   The class `.red` is applied to the second paragraph, making its text red.
 -   Any element in the document can have the `.red` class, and they will all receive the same styling.
 
-###  **ID Selector**
+### ID Selector
 
 IDs are unique identifiers assigned to elements. They should be used only once per page. IDs are targeted in CSS using the `#` selector.
 
@@ -76,7 +78,7 @@ IDs are unique identifiers assigned to elements. They should be used only once p
 -   The ID `#uppercase` is applied to the heading, which makes the text transform to uppercase.
 -   Since IDs are unique, the `#uppercase` style will only apply to the element with that specific ID.
 
-###  **Attribute Selectors**
+### Attribute Selectors
 
 Attribute selectors allow you to style elements based on the presence or value of an attribute.
 
@@ -122,9 +124,6 @@ h2 {
 </html>
 
 ```
-**OUTPUT:**
-
-![image](https://github.com/user-attachments/assets/23a03370-83ca-4c3e-ab95-b74c68791d03)
 
 ## What is Specificity?
 
@@ -402,30 +401,20 @@ For example, it can be used to:
 -   Style visited and unvisited links differently
 -   Style an element when it gets focus
 
-## Anchor Pseudo-classes
 
-Links can be displayed in different ways:
 ```css
-/* unvisited link */  
-a:link {  
-color:  #FF0000;  
-}  
-  
-/* visited link */  
-a:visited {  
-color:  #00FF00;  
-}  
-  
-/* mouse over link */  
-a:hover {  
-color:  #FF00FF;  
-}  
-  
-/* selected link */  
-a:active {  
-color:  #0000FF;  
+button:hover {
+  background-color: yellow; 
+  color: red; 
+}
+
+input:focus {
+  outline: 2px solid blue; 
+  background-color: lightgray; 
 }
 ```
+![image](https://github.com/user-attachments/assets/373d8b76-ef17-45e3-bea9-4758a83c2c3b)
+
 ## What are Pseudo-Elements?
 
 A CSS pseudo-element is used to style specified parts of an element.
@@ -434,10 +423,10 @@ For example, it can be used to:
 
 -   Style the first letter, or line, of an element
 -   Insert content before, or after, the content of an element
+
 ## The ::first-line Pseudo-element
 
 The  `::first-line`  pseudo-element is used to add a special style to the first line of a text.
-
 The following example formats the first line of the text in all <p> elements:
 
 ### Example
@@ -546,23 +535,33 @@ Bootstrap 4 introduced several enhancements and new components to improve design
 ## 1. Flexbox Support
 Bootstrap 4 uses Flexbox as its default layout module, replacing the float-based layout from previous versions. 
 This allows for:
-- **Better Alignment:** Align items horizontally and vertically within containers with ease.
-- **Equal Height Columns:** Flexbox allows for equal height columns in a row without additional CSS.
-- **Reordering:** Change the order of columns and items without altering the HTML structure.
+  -   **Flex container**: The parent element that holds the flex items. By setting `display: flex;`, the children of this element become flex items.
+-   **Direction**: Flexbox allows you to easily change the direction of your layout using `flex-direction` (e.g., `row`, `column`).
+-   **Alignment**: You can align items along the main axis and cross axis using `justify-content`, `align-items`, and `align-self`.
+-   **Order**: The `order` property allows you to easily change the order of items without altering the HTML structure.
+-   **Flexible sizing**: Items can grow and shrink in relation to their siblings with properties like `flex-grow`, `flex-shrink`, and `flex-basis`.
 
-### Example:
-```html
-<div class="container mt-3">
-  <h2>Inline Flex</h2>
-  <div class="d-inline-flex p-3 bg-secondary text-white">  
-    <div class="p-2 bg-info">Flex item 1</div>
-    <div class="p-2 bg-warning">Flex item 2</div>
-    <div class="p-2 bg-primary">Flex item 3</div>
-  </div>
+### CCS flexbox:
+```css
+.container {
+  display: flex;
+  justify-content: space-between; /* Evenly distributes items along the main axis */
+  align-items: center; /* Centers items along the cross axis */
+}
+
+.item {
+  flex-grow: 1; /* Items grow to fill available space */
+}
+```
+### Bootstrap 4 flexbox:
+  Bootstrap 4 uses Flexbox as its default layout model, providing pre-built classes and components to create responsive designs easily.
+  ```css
+  <div class="d-flex justify-content-between align-items-center">
+  <div class="flex-grow-1">Item 1</div>
+  <div>Item 2</div>
+  <div>Item 3</div>
 </div>
 ```
-![image](https://github.com/user-attachments/assets/b33d3206-9180-41fd-afaa-c51acd9f1425)
-
 ## 2. Card Component
 
 The Card component in Bootstrap 4 is a flexible content container that can include headers, footers, images, and more. It replaces panels, wells, and thumbnails from Bootstrap 3.
@@ -590,7 +589,7 @@ The Card component in Bootstrap 4 is a flexible content container that can inclu
   
 </div>
 ```
-![image](https://github.com/user-attachments/assets/09168f72-b8af-436c-8d51-e170e69ed227)
+![image](https://github.com/user-attachments/assets/7b30fe21-a432-4a68-85c6-2e310ac12288)
 
 ## 3. Badges
 
@@ -688,6 +687,8 @@ The Navbar in Bootstrap 4 is more flexible and easier to customize.
   </div>
 </nav>
 ``` 
+[Try Bootstrap 4 Navbar Collapse Example on W3Schools](https://www.w3schools.com/bootstrap4/tryit.asp?filename=trybs_navbar_collapse)
+
 
 ## 8. Icons
 
@@ -695,8 +696,14 @@ Bootstrap 4 doesn't include its own icon library. However, it's easy to integrat
 
 ### Example:
 ```html
-<i class="fa fa-home"></i>
+<i class="fas fa-cloud"></i>
+<i class="fas fa-coffee"></i>
+<i class="fas fa-car"></i>
+<i class="fas fa-file"></i>
+<i class="fas fa-bars"></i>
 ```
+![image](https://github.com/user-attachments/assets/e006c812-cb64-4e54-b73b-d0e6b7a25e9f)
+
 ## Conclusion
 
 Bootstrap 4 introduced significant enhancements, making it more powerful and user-friendly compared to its predecessors. The introduction of Flexbox, the card component, and various utilities provides developers with a flexible framework to create responsive and modern web designs efficiently.
