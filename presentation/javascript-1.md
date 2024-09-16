@@ -403,3 +403,120 @@ Both `Set` and `Map` are versatile and can be used for different use cases where
 | **Key Datatype**             | Keys must be Strings (or Symbols)   | Keys can be any datatype       |
 | **Key Order**                | Keys are not well ordered           | Keys are ordered by insertion  |
 | **Default Keys**             | Have default keys                   | Do not have default keys       |
+
+
+
+# Introduction to JavaScript Dates
+
+    -   JavaScript provides the `Date` object for working with dates and times.
+    -   A `Date` object represents a single moment in time in a platform-independent format.
+    -   It allows for creating, manipulating, and formatting dates and times.
+
+
+### Creating Date Objects
+
+-   Creating Date Objects
+
+    -   **`new Date()`**: Creates a new `Date` object with the current date and time.
+    -   **`new Date(milliseconds)`**: Creates a `Date` object with the number of milliseconds since January 1, 1970.
+    -   **`new Date(dateString)`**: Creates a `Date` object from a date string.
+    -   **`new Date(year, month, day, hours, minutes, seconds, milliseconds)`**: Creates a `Date` object with specific date and time.
+    
+    ```js
+    let currentDate = new Date();
+    let specificDate = new Date('2024-09-15');
+    let msDate = new Date(0); // January 1, 1970 
+    ```
+    
+
+
+
+### Common Date Methods
+
+    
+    
+  -   **Getting Components**:
+        -   `.getFullYear()` – Returns the year.
+        -   `.getMonth()` – Returns the month (0-11).
+        -   `.getDate()` – Returns the day of the month (1-31).
+        -   `.getHours()`, `.getMinutes()`, `.getSeconds()`, `.getMilliseconds()` – Time components.
+        -   `.getDay()` – Returns the day of the week (0 for Sunday).
+  -   **Setting Components**:
+        -   `.setFullYear()`, `.setMonth()`, `.setDate()`, etc.
+-   **Example**:
+    
+    ```js
+    let date = new Date();
+    console.log(date.getFullYear()); // 2024
+    console.log(date.getMonth());    // 8 (September, because months are zero-indexed) 
+    ```
+
+
+###  Formatting Dates
+
+-  Formatting Dates
+    
+    -   JavaScript does not have a built-in date formatting method, but you can use string concatenation or external libraries like **Moment.js** or **Intl.DateTimeFormat**.
+    -   **`toISOString()`**: Returns the date as a string in ISO format.
+    -   **`toDateString()`**: Returns the date in a human-readable format.
+    -   **`toLocaleDateString()`**: Returns the date in the format according to the locale.
+-   **Example**:
+    
+    ```js
+    let date = new Date();
+    console.log(date.toISOString());       // 2024-09-15T12:00:00.000Z
+    console.log(date.toDateString());      // Sun Sep 15 2024
+    console.log(date.toLocaleDateString()); // 9/15/2024
+    ``` 
+    
+
+----------
+
+### Time Zones and UTC
+
+
+    
+  -   **`getUTCFullYear()`**, **`getUTCMonth()`**, etc., return the date in UTC (Coordinated Universal Time).
+  -   **`getTimezoneOffset()`**: Returns the difference in minutes between UTC and local time.
+  -   **Setting Dates in UTC**:
+      -   `.setUTCFullYear()`, `.setUTCMonth()`, etc.
+
+-   **Example**:
+    
+    ```js
+    let date = new Date();
+    console.log(date.getUTCFullYear());  // 2024
+    console.log(date.getTimezoneOffset()); // -240 (difference in minutes)
+    ``` 
+
+
+### Date Arithmetic
+
+    
+-   You can add or subtract time from a date by manipulating its components or using milliseconds.
+-   Example: Add days, months, hours, etc., to a date.
+-   **Example**:
+    
+    ```js
+    let date = new Date();
+    date.setDate(date.getDate() + 5); // Add 5 days
+    console.log(date);
+    ``` 
+    
+
+
+### Working with Timestamps
+
+    
+-   **`Date.now()`**: Returns the current timestamp (number of milliseconds since January 1, 1970).
+-   You can convert a date object to a timestamp using `.getTime()`.
+-   **Example**:
+
+    ```js
+    let timestamp = Date.now();
+    console.log(timestamp); // Current timestamp in milliseconds
+      
+    let date = new Date();
+    console.log(date.getTime()); // Timestamp of the current date
+    ``` 
+    
