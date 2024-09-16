@@ -6,6 +6,7 @@
 2. [JavaScript Type Conversion](#javascript-type-conversion)
 3. [JavaScript Set](#javascript-set)
 4. [JavaScript Map](#javascript-map)
+5. [Introduction to JavaScript Dates](#introduction-to-javascript-dates)
 
 
 
@@ -519,4 +520,175 @@ Both `Set` and `Map` are versatile and can be used for different use cases where
     let date = new Date();
     console.log(date.getTime()); // Timestamp of the current date
     ``` 
-    
+
+
+
+# JavaScript For Loop
+Let's go over the different types of loops and array methods in JavaScript, step by step:
+
+### 1. **`for` Loop**
+The `for` loop is used to execute a block of code a specific number of times. It consists of three parts: initialization, condition, and update.
+
+**Syntax**:
+```javascript
+for (initialization; condition; update) {
+    // Code to be executed
+}
+```
+
+**Example**:
+```javascript
+for (let i = 0; i < 5; i++) {
+    console.log(i);
+}
+```
+In this example, the loop runs five times, printing numbers from 0 to 4.
+
+---
+
+### 2. **`for...in` Loop**
+The `for...in` loop is used to iterate over `the keys (or properties or index)` of an object or the indices of an array.
+
+
+
+**Example**:
+```javascript
+const arr = [10, 20, 30];
+for (let key in arr) {
+    console.log(`index:${key}, value:${arr[key]}`);
+}
+
+OUTPUT:
+index:0, value:10
+index:1, value:20
+index:2, value:30
+
+const obj = { a: 1, b: 2, c: 3 };
+for (let key in obj) {
+    console.log(key, obj[key]);
+}
+
+OUTPUT:
+a 1
+b 2
+c 3  
+```
+
+### 3. **`for...of` Loop**
+The `for...of` loop is used to iterate over iterable objects like arrays, strings, or sets. It allows direct access to the values.
+
+
+**Example**:
+```javascript
+const arr = [10, 20, 30];
+for (let value of arr) {
+    console.log(value);
+}
+```
+In this example, the loop iterates over the array values and prints `10`, `20`, and `30`.
+
+---
+
+### 4. **`while` Loop**
+The `while` loop continues executing a block of code as long as a specified condition is `true`.
+
+**Syntax**:
+```javascript
+while (condition) {
+    // Code to be executed
+}
+```
+
+**Example**:
+```javascript
+let i = 0;
+while (i < 5) {
+    console.log(i);
+    i++;
+}
+```
+Here, the loop prints numbers from `0` to `4` and stops when `i` equals `5`.
+
+---
+
+### 5. **`break`**
+The `break` statement is used to exit a loop prematurely when a certain condition is met.
+
+**Syntax**:
+```javascript
+if (condition) {
+    break;
+}
+```
+
+**Example**:
+```javascript
+for (let i = 0; i < 10; i++) {
+    if (i === 5) {
+        break;
+    }
+    console.log(i);
+}
+```
+This loop prints `0` to `4` and then stops when `i` equals `5` because of the `break` statement.
+
+---
+
+### 6. **`map()`**
+The `map()` method creates a new array by applying a function to each element in the original array. It does **not** modify the original array.
+
+**Syntax**:
+```javascript
+const newArray = array.map(function(element, index, array) {
+    // Return a new value for the new array
+});
+```
+
+**Example**:
+```javascript
+const numbers = [1, 2, 3, 4];
+const doubled = numbers.map(num => num * 2);
+console.log(doubled); // [2, 4, 6, 8]
+```
+
+---
+
+### 7. **`filter()`**
+The `filter()` method creates a new array containing elements that pass a specified condition. Like `map()`, it doesn't change the original array.
+
+**Syntax**:
+```javascript
+const newArray = array.filter(function(element, index, array) {
+    // Return true if the element should be in the new array
+});
+```
+
+**Example**:
+```javascript
+const numbers = [1, 2, 3, 4];
+const evens = numbers.filter(num => num % 2 === 0);
+console.log(evens); // [2, 4]
+```
+
+---
+
+### 8. **`forEach()`**
+The `forEach()` method executes a function once for each array element. Unlike `map()` and `filter()`, it doesn't return a new array.
+
+**Syntax**:
+```javascript
+array.forEach(function(element, index, array) {
+    // Code to be executed for each element
+});
+```
+
+**Example**:
+```javascript
+const numbers = [1, 2, 3, 4];
+numbers.forEach(num => console.log(num));
+```
+This prints `1`, `2`, `3`, and `4` to the console but doesn't return a new array.
+
+---
+
+These loops and array methods are essential in JavaScript, offering flexibility for iterating over data, processing collections, and controlling loop execution.
