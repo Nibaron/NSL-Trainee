@@ -19,7 +19,7 @@ JavaScript has several data types, which are broadly divided into two categories
 -  **Reference (Object) Data Types**.
 
 ### 1. **Primitive Data Types**
-These are the basic data types in JavaScript, and their values are stored directly.
+These are the basic data types in JavaScript, and their values are stored directly and immutable. 
 
 - **String**: Represents a sequence of characters (text).
   - Example: 
@@ -98,6 +98,47 @@ These are complex data types and store collections of data or more complex entit
     ```js
     let regex = /ab+c/;
     ```
+
+### Characteristics of Primitive Types:
+- **Immutability**: Once a primitive value is created, it cannot be changed. For example, performing operations on a string or number doesn’t modify the original value; instead, a new value is returned.
+  
+  Example:
+  ```js
+  let name = "Nibaron";
+  name[0] = "X";  // Doesn't change the string
+  console.log(name);  // Output: "Nibaron"
+  ```
+
+- **Stored by value**: When assigning a primitive value to another variable, the value is copied, not referenced.
+
+  Example:
+  ```js
+  let a = 10;
+  let b = a;
+  b = 20;
+  console.log(a);  // Output: 10 (remains unchanged)
+  ```
+
+
+### Characteristics of Non-Primitive Types:
+- **Mutability**: Non-primitive values (objects) can be changed after they are created. For example, properties in an object or elements in an array can be modified.
+
+  Example:
+  ```js
+  let person = { name: "Nibaron", age: 25 };
+  person.age = 26;  // Modifies the 'age' property
+  console.log(person.age);  // Output: 26
+  ```
+
+- **Stored by reference**: When assigning a non-primitive value to another variable, both variables refer to the same object in memory. Changes made to one will affect the other.
+
+  Example:
+  ```js
+  let a = { name: "Nibaron" };
+  let b = a;
+  b.name = "Rudra";
+  console.log(a.name);  // Output: "Rudra" (both `a` and `b` reference the same object)
+  ```
 
 ### Example of Declaring Different Data Types:
 
@@ -217,6 +258,95 @@ Use the `Number()`, `parseInt()`, or `parseFloat()` functions to convert strings
   console.log(intNum); // Output: 123
   console.log(floatNum); // Output: 123.45
   ```
+# Number() vs parseInt()
+Both `Number()` and `parseInt()` in JavaScript are used to convert values to numbers, but they work in different ways and are used for different purposes. Here’s a comparison of the two:
+
+### 1. **`Number()`**
+
+- **Purpose**: Converts the entire input to a number (including floating-point numbers).
+- **Returns**: A number, or `NaN` if the value cannot be converted.
+- **Behavior**: `Number()` tries to convert the entire string or value to a number. It converts various data types like booleans, null, strings, and even empty strings.
+
+#### Example:
+```js
+console.log(Number("123"));      // Output: 123 (number)
+console.log(Number("123.45"));   // Output: 123.45 (number)
+console.log(Number("123abc"));   // Output: NaN (Not a Number)
+console.log(Number(true));       // Output: 1 (boolean to number)
+console.log(Number(false));      // Output: 0 (boolean to number)
+console.log(Number(null));       // Output: 0 (null to number)
+console.log(Number(undefined));  // Output: NaN (undefined to NaN)
+```
+
+### 2. **`parseInt()`**
+
+- **Purpose**: Parses a string and returns an integer.
+- **Returns**: An integer, or `NaN` if the value cannot be converted.
+- **Behavior**: `parseInt()` reads a string from left to right, stopping at the first character that is not a valid part of a number. It can parse just the integer part of a number, ignoring the decimal portion if present. It also allows for specifying a **radix** (base) for parsing.
+
+#### Example:
+```js
+console.log(parseInt("123"));       // Output: 123 (integer)
+console.log(parseInt("123.45"));    // Output: 123 (only the integer part is parsed)
+console.log(parseInt("123abc"));    // Output: 123 (stops parsing at the first non-number character)
+console.log(parseInt("abc123"));    // Output: NaN (cannot parse from the start)
+console.log(parseInt("10", 2));     // Output: 2 (binary "10" is parsed as 2 in base 2)
+```
+
+### Key Differences:
+
+1. **Handling of Floating Point Numbers:**
+   - `Number()` will convert the entire value (including decimals) into a number.
+   - `parseInt()` only parses the integer part and ignores anything after the decimal point.
+
+   ```js
+   Number("123.45");   // Output: 123.45
+   parseInt("123.45"); // Output: 123
+   ```
+
+2. **Handling Non-Numeric Characters:**
+   - `Number()` returns `NaN` if there are any invalid characters in the string.
+   - `parseInt()` stops parsing when it encounters a non-numeric character and still returns the parsed part as an integer.
+
+   ```js
+   Number("123abc");    // Output: NaN
+   parseInt("123abc");  // Output: 123
+   ```
+
+3. **Handling of Radix (Base):**
+   - `Number()` always assumes a decimal (base 10) number.
+   - `parseInt()` can parse numbers in different bases, such as binary, octal, or hexadecimal, if a radix is provided.
+
+   ```js
+   parseInt("10", 2);   // Output: 2 (binary to decimal)
+   parseInt("10", 8);   // Output: 8 (octal to decimal)
+   ```
+
+4. **Empty String:**
+   - `Number("")` returns `0`.
+   - `parseInt("")` returns `NaN`.
+
+   ```js
+   Number("");     // Output: 0
+   parseInt("");   // Output: NaN
+   ```
+
+5. **Handling Other Data Types:**
+   - `Number()` can handle booleans, `null`, and `undefined` and tries to convert them to numbers.
+   - `parseInt()` expects a string, and other types will be converted to a string (if possible) before parsing.
+
+   ```js
+   Number(true);    // Output: 1
+   parseInt(true);  // Output: NaN
+
+   Number(null);    // Output: 0
+   parseInt(null);  // Output: NaN
+   ```
+
+### Summary:
+
+- Use **`Number()`** when you need to convert an entire string to a number, including floating-point numbers, and want to handle various data types.
+- Use **`parseInt()`** when you need to extract the integer part from a string, especially if it includes non-numeric characters, or if you want to parse numbers in a specific radix (like binary, octal, or hexadecimal).
 
 #### Converting to Boolean:
 You can convert values to boolean using the `Boolean()` function.
@@ -476,8 +606,6 @@ Both `Set` and `Map` are versatile and can be used for different use cases where
 ----------
 
 ### Time Zones and UTC
-
-
     
   -   **`getUTCFullYear()`**, **`getUTCMonth()`**, etc., return the date in UTC (Coordinated Universal Time).
   -   **`getTimezoneOffset()`**: Returns the difference in minutes between UTC and local time.
@@ -522,6 +650,74 @@ Both `Set` and `Map` are versatile and can be used for different use cases where
     let date = new Date();
     console.log(date.getTime()); // Timestamp of the current date
     ``` 
+JavaScript provides its built-in `Date` object to handle dates and times, but many developers prefer using libraries like **Moment.js** due to its ease of use and additional functionality. Let's compare the two in detail:
+
+### **Moment.js**
+**Moment.js** is a popular JavaScript library that simplifies date manipulation, formatting, parsing, and handling time zones. While Moment.js is no longer in active development (it has been superseded by other libraries like `day.js`), it is still widely used in many projects.
+
+#### Advantages of Moment.js:
+- **Ease of formatting**: Moment.js offers many convenient formatting methods.
+- **Locale support**: You can easily format dates and times according to various locales.
+- **Time zone handling**: Moment.js offers built-in support for handling time zones with its `moment-timezone` extension.
+- **Chainable methods**: Moment.js allows you to chain methods for manipulation, making code more readable and concise.
+
+#### Creating Dates with Moment.js:
+- **Current Date**:
+   ```js
+   const now = moment();
+   console.log(now.toString());  // Output: current date and time (formatted)
+   ```
+- **Specific Date**:
+   ```js
+   const specificDate = moment('2024-09-13');
+   console.log(specificDate.toString());  // Output: Fri Sep 13 2024
+   ```
+
+#### Formatting Dates:
+Moment.js offers powerful formatting options using the `.format()` method:
+```js
+const now = moment();
+const formattedDate = now.format('YYYY-MM-DD');
+console.log(formattedDate);  // Output: "2024-09-13"
+```
+
+#### Parsing Dates:
+Moment.js can parse dates in various formats, making it more reliable than the native `Date` object.
+```js
+const date = moment('2024-09-13', 'YYYY-MM-DD');
+console.log(date.toString());  // Output: Fri Sep 13 2024
+```
+
+#### Time Zone Handling (with `moment-timezone`):
+Moment.js supports time zones with an additional `moment-timezone` package.
+```js
+const nyTime = moment.tz("2024-09-13 12:00", "America/New_York");
+console.log(nyTime.format());  // Output: 2024-09-13T12:00:00-04:00
+```
+
+#### Manipulating Dates:
+Moment.js makes date manipulation straightforward with methods like `.add()` and `.subtract()`:
+```js
+const futureDate = moment().add(10, 'days');
+console.log(futureDate.format('YYYY-MM-DD'));  // Output: Date 10 days from now
+
+const pastDate = moment().subtract(1, 'month');
+console.log(pastDate.format('YYYY-MM-DD'));  // Output: Date 1 month ago
+```
+
+### Key Differences:
+
+| Feature                  | JavaScript `Date`           | Moment.js                         |
+|--------------------------|-----------------------------|------------------------------------|
+| **Ease of use**           | Basic, requires manual formatting and manipulation | Simple, chainable methods for formatting, parsing, and manipulating dates |
+| **Date formatting**       | Manual work with `getFullYear()`, `getMonth()`, etc. | Easy formatting with `.format()` |
+| **Date parsing**          | Limited support for different formats | Robust parsing with support for multiple formats |
+| **Time zone support**     | Basic, local time only | Extensive support with `moment-timezone` |
+| **Locale support**        | Limited to basic formats | Full locale support for regional formats and languages |
+| **Date manipulation**     | Requires custom code | Simple and intuitive `.add()`, `.subtract()` methods |
+| **Mutability**            | `Date` object is mutable (you can change the original value) | Moment objects are mutable but offer immutable options via `.clone()` |
+| **Performance**           | Faster because it's native | Moment.js can be slower due to its extensive features |
+| **Size**                  | Built-in, no extra size     | Moment.js is a large library (~60kb) |
 
 
 
