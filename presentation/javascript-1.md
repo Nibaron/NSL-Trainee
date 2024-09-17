@@ -601,25 +601,6 @@ Both `Set` and `Map` are versatile and can be used for different use cases where
     console.log(date.toDateString());      // Sun Sep 15 2024
     console.log(date.toLocaleDateString()); // 9/15/2024
     ``` 
-    
-
-----------
-
-### Time Zones and UTC
-    
-  -   **`getUTCFullYear()`**, **`getUTCMonth()`**, etc., return the date in UTC (Coordinated Universal Time).
-  -   **`getTimezoneOffset()`**: Returns the difference in minutes between UTC and local time.
-  -   **Setting Dates in UTC**:
-      -   `.setUTCFullYear()`, `.setUTCMonth()`, etc.
-
--   **Example**:
-    
-    ```js
-    let date = new Date();
-    console.log(date.getUTCFullYear());  // 2024
-    console.log(date.getTimezoneOffset()); // -240 (difference in minutes)
-    ``` 
-
 
 ### Date Arithmetic
 

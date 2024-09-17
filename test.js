@@ -65,5 +65,32 @@
 //   let type = [];
 //   salesData.map( data => products.name)
 
-let timestamp = Date.now();
-    console.log(timestamp);
+// const words = ["this","apple","is","sweet","sweet","this","apple","is","sour"];
+
+// var map = new Map();
+// for(const word of words){
+//     if( map.has(word) ){
+//         map.set(word, map.get(word)+1);
+//     }
+//     else map.set(word,1);
+// }
+// const ans = [];
+// map.forEach((value,key) => value == 1 ? ans.push(key) : null)
+// console.log(ans);
+
+const person = {
+    name: "John",
+    age: 30,
+    address: {
+        street: "123 Main St",
+        city: "New York",
+        zip: "10001"
+    },
+    job: {
+        title: "Developer",
+        company: "Tech Corp"
+    }
+};
+  
+  let text = Object.entries(person);
+  console.log(text);
