@@ -49,7 +49,7 @@ This repo covers the following web development technologies:
 1.  **Cloning the repository**:
     -   Clone this repo to your local machine using:
      ```bash
-    git clone https://github.com/username/frontend-training.git 
+    git clone https://github.com/Nibaron/NSL-Trainee.git 
     ```
         
 2.  **Explore the folders**:
