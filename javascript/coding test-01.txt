@@ -1,0 +1,105 @@
+1. Given the array const numbers = [1, 2, 2, 3, 4, 4, 5], write a function removeDuplicates that returns a new array with all duplicates removed.
+removeDuplicates(numbers); // [1, 2, 3, 4, 5]
+
+
+2. Write a function mergeObjects that takes two objects and merges them into one. If a key exists in both objects, the value from the second object should override the first one.
+const obj1 = { a: 1, b: 2, c: 3 };
+const obj2 = { b: 4, d: 5 };
+
+mergeObjects(obj1, obj2); // { a: 1, b: 4, c: 3, d: 5 }
+
+
+3. Write a function doubleValues that takes an array of numbers and returns sum of doubled each number.
+const arr = [1, 2, 3, 4];
+
+
+4. You have an array of objects representing users, each with a name, age, and hobbies. Write a function getUserHobbies that takes this array and returns a list of all hobbies for users over the age of 18.
+
+const users = [
+  { name: 'Alice', age: 25, hobbies: ['reading', 'cycling'] },
+  { name: 'Bob', age: 17, hobbies: ['video games', 'skateboarding'] },
+  { name: 'Charlie', age: 30, hobbies: ['swimming', 'running'] }
+];
+
+getUserHobbies(users); // ['reading', 'cycling', 'swimming', 'running']
+
+
+5. Write a function groupByCategory that takes an array of product objects and groups them by their category. Each product has a name and category. Return an object where the keys are the 
+category names and the values are arrays of product names that belong to those categories.
+
+const products = [
+  { name: 'Shirt', category: 'Clothing' },
+  { name: 'Pants', category: 'Clothing' },
+  { name: 'Laptop', category: 'Electronics' },
+  { name: 'Phone', category: 'Electronics' },
+  { name: 'Hat', category: 'Accessories' }
+];
+
+
+groupByCategory(products); 
+// {
+//   Clothing: ['Shirt', 'Pants'],
+//   Electronics: ['Laptop', 'Phone'],
+//   Accessories: ['Hat']
+// }
+
+
+6. You are given an array of deeply nested objects representing product sales by region. Each region has name, products, and each product contains name and unitsSold. 
+Write a function getTotalSalesByProduct that returns an object where the keys are product names and the values are the total units sold across all regions.
+
+const salesData = [
+  {
+    region: 'North America',
+    products: [
+      { name: 'Laptop', unitsSold: 100 },
+      { name: 'Phone', unitsSold: 200 }
+    ]
+  },
+  {
+    region: 'Europe',
+    products: [
+      { name: 'Laptop', unitsSold: 150 },
+      { name: 'Phone', unitsSold: 100 }
+    ]
+  },
+  {
+    region: 'Asia',
+    products: [
+      { name: 'Laptop', unitsSold: 200 },
+      { name: 'Tablet', unitsSold: 150 }
+    ]
+  }
+];
+
+getTotalSalesByProduct(salesData); 
+// { Laptop: 450, Phone: 300, Tablet: 150 }
+
+
+7. You are given an object that represents an organization's hierarchy. Each node contains a name, position, and a subordinates array, which can contain further nested nodes. 
+Write a function getAllEmployees that returns an array of names of all employees at every level of the hierarchy.
+
+const organization = {
+  name: 'John',
+  position: 'CEO',
+  subordinates: [
+    {
+      name: 'Sarah',
+      position: 'CTO',
+      subordinates: [
+        { name: 'Tim', position: 'Lead Developer', subordinates: [] },
+        { name: 'Anna', position: 'Senior Developer', subordinates: [] }
+      ]
+    },
+    {
+      name: 'James',
+      position: 'CFO',
+      subordinates: [
+        { name: 'Karen', position: 'Accountant', subordinates: [] }
+      ]
+    }
+  ]
+};
+
+getAllEmployees(organization); 
+// ['John', 'Sarah', 'Tim', 'Anna', 'James', 'Karen']
+

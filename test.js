@@ -78,19 +78,23 @@
 // map.forEach((value,key) => value == 1 ? ans.push(key) : null)
 // console.log(ans);
 
-const person = {
-    name: "John",
-    age: 30,
-    address: {
-        street: "123 Main St",
-        city: "New York",
-        zip: "10001"
-    },
-    job: {
-        title: "Developer",
-        company: "Tech Corp"
-    }
-};
+// const person = {
+//     name: "John",
+//     age: 30,
+//     address: {
+//         street: "123 Main St",
+//         city: "New York",
+//         zip: "10001"
+//     },
+//     job: {
+//         title: "Developer",
+//         company: "Tech Corp"
+//     }
+// };
   
-  let text = Object.entries(person);
-  console.log(text);
+//   let text = Object.entries(person);
+//   console.log(text);
+
+const numbers = [1, 11, 2, 20, 3, 4, 4, 5];
+numbers.sort((a,b)=> b-a);
+console.log(numbers)

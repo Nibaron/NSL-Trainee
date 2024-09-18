@@ -640,6 +640,60 @@ const numbers = [1, 2, 3, 4];
 const sum = numbers.reduce((total, num) => total + num, 0);
 console.log(sum);  // Output: 10
 ```
+### Array Methods (Continued):
+
+#### 13. **`flat()`** – Flattens a nested array into a single-level array:
+```javascript
+const nestedArray = [1, [2, 3], [4, [5, 6]]];
+const flatArray = nestedArray.flat(2);
+console.log(flatArray);  // Output: [1, 2, 3, 4, 5, 6]
+```
+
+- The argument specifies the depth to which the array should be flattened. In the above example, `2` flattens two levels deep.
+
+#### 14. **`every()`** – Checks if every element in the array satisfies a condition:
+```javascript
+const numbers = [1, 2, 3, 4, 5];
+const allPositive = numbers.every(num => num > 0);
+console.log(allPositive);  // Output: true
+```
+
+- Returns `true` if all elements pass the test, otherwise `false`.
+
+#### 15. **`some()`** – Checks if at least one element in the array satisfies a condition:
+```javascript
+const hasNegative = numbers.some(num => num < 0);
+console.log(hasNegative);  // Output: false
+```
+
+- Returns `true` if at least one element passes the test, otherwise `false`.
+
+#### 16. **`keys()`** – Returns an array iterator that contains the keys (indices) for each index in the array:
+```javascript
+const fruits = ["Apple", "Grapes", "Peach", "Orange"];
+const keys = fruits.keys();
+for (let key of keys) {
+  console.log(key);
+}
+// Output:
+// 0
+// 1
+// 2
+// 3
+```
+
+- Useful for iterating through the keys (indices) of an array.
+
+
+
+#### 17. **`reverse()`** – Reverses the order of elements in the array:
+```javascript
+const fruits = ["Apple", "Grapes", "Peach", "Orange"];
+fruits.reverse();
+console.log(fruits);  // Output: ["Orange", "Peach", "Grapes", "Apple"]
+```
+
+- This method **mutates** the original array by reversing its order.
 
 ---
 
@@ -663,6 +717,40 @@ Check if an array contains a specific element.
 ```javascript
 console.log(fruits.includes("Grapes"));  // Output: true
 ```
+---
+---
+### Sorting Arrays in JavaScript
+
+The **`sort()`** method in JavaScript is used to sort the elements of an array. It can handle both **alphabetic** and **numeric** sorting, but there are some important details to consider when working with numbers.
+
+#### 1. **Alphabetical Sorting** (Default Behavior):
+When no compare function is provided, `sort()` sorts array elements as **strings** in **alphabetical order**.
+```javascript
+const fruits = ["Banana", "Orange", "Apple", "Mango"];
+fruits.sort();
+console.log(fruits);  // Output: ["Apple", "Banana", "Mango", "Orange"]
+```
+- **Note:** Even if the array contains numbers, without a compare function, JavaScript will convert them to strings and sort them **lexicographically** (alphabetically by character code).
+
+#### 2. **Numeric Sorting**:
+For sorting numbers correctly, you need to pass a **compare function** to the `sort()` method. This function defines the sorting logic.
+
+##### Ascending Order:
+```javascript
+const numbers = [40, 100, 1, 5, 25, 10];
+numbers.sort((a, b) => a - b);
+console.log(numbers);  // Output: [1, 5, 10, 25, 40, 100]
+```
+- **Explanation**: The compare function `(a, b) => a - b` sorts the numbers in ascending order:
+  - If the result is negative (`a < b`), `a` comes before `b`.
+  - If the result is positive (`a > b`), `b` comes before `a`.
+
+##### Descending Order:
+```javascript
+numbers.sort((a, b) => b - a);
+console.log(numbers);  // Output: [100, 40, 25, 10, 5, 1]
+```
+- The compare function `(a, b) => b - a` sorts numbers in **descending** order.
 
 ---
 
@@ -709,3 +797,62 @@ console.log(matrix[0][1]);  // Output: 2
 - They are particularly useful for ordered collections of items, such as lists of numbers, strings, or objects.
 
 ---
+
+The **spread operator** (`...`) in JavaScript is a powerful tool for working with arrays and other iterable objects. It allows you to expand elements from an array or object into individual elements or properties. Here's how you can use the spread operator with arrays:
+
+### 1. **Copying Arrays**
+You can create a shallow copy of an array using the spread operator:
+```javascript
+const originalArray = [1, 2, 3, 4];
+const copiedArray = [...originalArray];
+console.log(copiedArray);  // Output: [1, 2, 3, 4]
+```
+- **Note:** This creates a shallow copy, so changes to nested objects within the copied array will still affect the original array.
+
+### 2. **Combining Arrays**
+The spread operator is useful for merging multiple arrays into one:
+```javascript
+const array1 = [1, 2, 3];
+const array2 = [4, 5, 6];
+const combinedArray = [...array1, ...array2];
+console.log(combinedArray);  // Output: [1, 2, 3, 4, 5, 6]
+```
+
+### 3. **Adding Elements to an Array**
+You can use the spread operator to add elements to the beginning or end of an array:
+```javascript
+const fruits = ["Apple", "Banana"];
+const moreFruits = ["Orange", "Mango"];
+const allFruits = ["Strawberry", ...fruits, ...moreFruits];
+console.log(allFruits);  // Output: ["Strawberry", "Apple", "Banana", "Orange", "Mango"]
+```
+
+### 4. **Using Spread Operator with Function Arguments**
+You can use the spread operator to pass an array as individual arguments to a function:
+```javascript
+const numbers = [1, 2, 3, 4];
+const sum = (a, b, c, d) => a + b + c + d;
+console.log(sum(...numbers));  // Output: 10
+```
+- Here, `...numbers` spreads the array elements into separate arguments for the `sum` function.
+
+### 5. **Destructuring Arrays**
+The spread operator can be used in array destructuring to collect the remaining elements:
+```javascript
+const [first, second, ...rest] = [1, 2, 3, 4, 5];
+console.log(first);  // Output: 1
+console.log(second); // Output: 2
+console.log(rest);  // Output: [3, 4, 5]
+```
+
+### 6. **Flattening Arrays**
+If you have nested arrays, you can use the spread operator to flatten them:
+```javascript
+const nestedArray = [1, [2, 3], [4, [5, 6]]];
+const flatArray = [].concat(...nestedArray);
+console.log(flatArray);  // Output: [1, 2, 3, [4, [5, 6]]]
+```
+- For deep flattening, consider using `flat()` method introduced in ES2019.
+
+### Summary
+The spread operator (`...`) provides a convenient way to work with arrays, including copying, merging, and manipulating array elements, as well as handling function arguments and destructuring. It simplifies many common tasks in JavaScript and enhances code readability.
