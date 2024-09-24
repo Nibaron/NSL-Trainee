@@ -1301,31 +1301,8 @@ fetch('https://jsonplaceholder.typicode.com/posts')
 - `.then()` handles the resolved promise, and `.catch()` handles any errors.
 
 
-### 4. **AJAX with `async/await` (with `fetch()`)**
 
-Using `async` and `await`, we can write asynchronous AJAX requests in a cleaner and more synchronous-looking way.
-
-#### Example with `async/await`:
-
-```javascript
-async function getData() {
-    try {
-        const response = await fetch('https://jsonplaceholder.typicode.com/posts');
-        const data = await response.json(); // Parse JSON
-        console.log(data); // Handle the data
-    } catch (error) {
-        console.error('Error:', error); // Handle any errors
-    }
-}
-
-getData();
-```
-
-#### Explanation:
-- `async` makes the function return a **Promise**.
-- `await` pauses the function execution until the **Promise** is resolved (i.e., when the data has been fetched).
-
-### 5. **AJAX Request Methods**
+### 4. **AJAX Request Methods**
 
 Here are some of the common HTTP methods used in AJAX requests:
 
@@ -1359,7 +1336,7 @@ const postData = async () => {
 postData();
 ```
 
-### 6. **AJAX Responses**
+### 5. **AJAX Responses**
 
 AJAX responses can be in various formats:
 - **JSON**: Commonly used format for exchanging data.
@@ -1377,7 +1354,7 @@ fetch('https://jsonplaceholder.typicode.com/posts')
     });
 ```
 
-### 7. **Handling Errors in AJAX**
+### 6. **Handling Errors in AJAX**
 
 It is crucial to handle errors in AJAX requests, such as network issues or a failure in the API.
 
