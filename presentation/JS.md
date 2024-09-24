@@ -1,6 +1,6 @@
 #  JavaScript
 JavaScript is a lightweight, interpreted, or just-in-time compiled programming language with first-class functions. It is known as the language of the web because it's primarily used for building interactive websites.
-## Table of Contents
+
 
 ## Table of Contents
 
@@ -143,21 +143,6 @@ These are complex data types and store collections of data or more complex entit
   console.log(a.name);  // Output: "Rudra" (both `a` and `b` reference the same object)
   ```
 
-### Example of Declaring Different Data Types:
-
-```js
-let name = "Alice"; // String
-let age = 28; // Number
-let isStudent = false; // Boolean
-let address = null; // Null
-let score; // Undefined
-let bigNumber = 12345678901234567890n; // BigInt
-
-let person = { name: "Alice", age: 28 }; // Object
-let colors = ["Red", "Green", "Blue"]; // Array
-let today = new Date(); // Date
-let regex = /hello/i; // RegExp
-```
 
 ### Dynamic Typing in JavaScript
 JavaScript is a **dynamically typed** language, meaning that the type of a variable is determined at runtime and you can change the type of a variable during execution.
@@ -167,8 +152,6 @@ let variable = "Hello"; // String
 variable = 42; // Now it's a Number
 ```
 
-These are the key data types you will work with in JavaScript.
-
 ### Difference Between Undefined and Null
 undefined and null are equal in value but different in type:
 
@@ -176,8 +159,12 @@ undefined and null are equal in value but different in type:
 typeof undefined      // undefined
 typeof null           // object
 
-null === undefined    // false
+/* value equality */
 null == undefined     // true
+
+/* strick equality */
+null === undefined    // false
+
 ```
 # JavaScript Type Conversion
 In JavaScript, **type conversion** refers to changing the type of a value from one data type to another. JavaScript performs type conversion in two ways:
@@ -364,42 +351,14 @@ let boolStr = Boolean(str);
 console.log(boolStr); // Output: true (non-empty string is truthy)
 ```
 
-### Example of Type Conversion
-
-```js
-let a = "10";       // String
-let b = 20;         // Number
-
-// Implicit conversion
-let result1 = a + b;  // "10" + 20 => "1020" (String concatenation)
-console.log(result1);
-
-// Explicit conversion
-let result2 = Number(a) + b;  // 10 + 20 => 30 (String to Number conversion)
-console.log(result2);
-
-// Boolean conversion
-let result3 = Boolean("");  // Empty string becomes false
-console.log(result3);  // Output: false
-```
-
-### Summary of Common Conversion Functions:
-- **`String(value)`**: Converts a value to a string.
-- **`Number(value)`**: Converts a value to a number.
-- **`parseInt(value)`**: Parses a string and returns an integer.
-- **`parseFloat(value)`**: Parses a string and returns a floating-point number.
-- **`Boolean(value)`**: Converts a value to a boolean.
-
 ### Important Notes:
 - **Falsy values**: `0`, `""`, `null`, `undefined`, and `NaN` are considered false when converted to boolean.
 - **Truthy values**: All other values (including empty objects and arrays) are considered true when converted to boolean.
 
-Type conversion is important to understand in JavaScript, especially because of implicit type coercion, which can sometimes produce unexpected results if not handled carefully.
-
 
 
 # JavaScript  Variables
-## Variables are Containers for Storing Data
+ Variables are Containers for Storing Data.
 
 JavaScript Variables can be declared in 4 ways:
 
@@ -557,18 +516,6 @@ console.log(second); // Output: 2
 console.log(rest);  // Output: [3, 4, 5]
 ```
 
-### 6. **Flattening Arrays**
-If you have nested arrays, you can use the spread operator to flatten them:
-```javascript
-const nestedArray = [1, [2, 3], [4, [5, 6]]];
-const flatArray = [].concat(...nestedArray);
-console.log(flatArray);  // Output: [1, 2, 3, [4, [5, 6]]]
-```
-- For deep flattening, consider using `flat()` method introduced in ES2019.
-
-### Summary
-The spread operator (`...`) provides a convenient way to work with arrays, including copying, merging, and manipulating array elements, as well as handling function arguments and destructuring. It simplifies many common tasks in JavaScript and enhances code readability.
-
 # JavaScript Iterators
 Let's go over the different types of loops and array methods in JavaScript, step by step:
 
@@ -701,7 +648,9 @@ const newArray = array.map(function(element, index, array) {
 **Example**:
 ```javascript
 const numbers = [1, 2, 3, 4];
-const doubled = numbers.map(num => num * 2);
+const doubled = numbers.map(function(num) {
+  return num * 2;
+});
 console.log(doubled); // [2, 4, 6, 8]
 ```
 
@@ -720,7 +669,9 @@ const newArray = array.filter(function(element, index, array) {
 **Example**:
 ```javascript
 const numbers = [1, 2, 3, 4];
-const evens = numbers.filter(num => num % 2 === 0);
+const evens = numbers.filter(function(num) {
+  return num % 2 === 0;
+});
 console.log(evens); // [2, 4]
 ```
 
@@ -739,7 +690,9 @@ array.forEach(function(element, index, array) {
 **Example**:
 ```javascript
 const numbers = [1, 2, 3, 4];
-numbers.forEach(num => console.log(num));
+numbers.forEach(function(num) {
+  console.log(num);
+});
 ```
 This prints `1`, `2`, `3`, and `4` to the console but doesn't return a new array.
 
@@ -884,11 +837,11 @@ Both `Set` and `Map` are versatile and can be used for different use cases where
 
 A **function** is a block of code designed to perform a particular task. You can think of it as a subprogram that can be executed whenever it is called (or invoked).
 
-### 2. **Creating/Declaring a Function**
+### 1. **Creating/Declaring a Function**
 
 There are several ways to define a function in JavaScript, including:
 
-#### 2.1 **Function Declaration**
+####  **Function Declaration**
 This is the most common way to define a function. A function declaration defines a named function and is hoisted (i.e., it can be called before the declaration appears in the code).
 
 ```javascript
@@ -911,7 +864,7 @@ function greet(name) {
 console.log(greet('Nibaron')); // Output: Hello, Nibaron
 ```
 
-#### 2.2 **Function Expression**
+#### **Function Expression**
 A function expression defines a function inside an expression. Unlike function declarations, function expressions are not hoisted, so you cannot call them before they are defined.
 
 ```javascript
@@ -930,7 +883,7 @@ const square = function(number) {
 console.log(square(5)); // Output: 25
 ```
 
-#### 2.3 **Arrow Functions (ES6)**
+#### **Arrow Functions (ES6)**
 Arrow functions provide a shorter syntax and lexically bind the `this` keyword. They are commonly used for simple functions and callbacks.
 
 ```javascript
