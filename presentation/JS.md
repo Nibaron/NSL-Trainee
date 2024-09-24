@@ -1242,6 +1242,36 @@ xhr.open('GET', 'https://jsonplaceholder.typicode.com/posts', true);
 xhr.send();
 ```
 
+<table class="ws-table-all notranslate"> 
+  <tbody><tr>
+    <th style="width:20%">Property</th>
+    <th>Description</th>
+  </tr>  
+  <tr>
+    <td>onreadystatechange</td>
+    <td>Defines a function to be called when the readyState property changes</td>
+  </tr>
+  <tr>
+    <td>readyState</td>
+    <td>Holds the status of the XMLHttpRequest. <br>
+ 0: request not initialized <br>
+ 1: server connection established<br>
+ 2: request received <br>
+ 3: processing request <br>
+ 4: request finished and response is ready</td>
+  </tr>
+  <tr>
+    <td>status</td>
+    <td>200: "OK"<br>403: "Forbidden"<br>
+ 404: "Page not found"<br>For a complete list go to the
+    <a href="/tags/ref_httpmessages.asp">Http Messages Reference</a></td>
+  </tr>
+  <tr>
+    <td>statusText</td>
+    <td>Returns the status-text (e.g. "OK" or "Not Found")</td>
+  </tr>
+</tbody></table>
+
 #### Explanation:
 - `xhr.onreadystatechange`: This function is called when the request's state changes.
 - `xhr.readyState`: This property defines the state of the request. When it’s `4`, the request is finished.
@@ -1270,34 +1300,8 @@ fetch('https://jsonplaceholder.typicode.com/posts')
 - `response.json()` is used to parse the response as JSON.
 - `.then()` handles the resolved promise, and `.catch()` handles any errors.
 
-### 4. **AJAX with jQuery**
 
-Before `fetch()`, jQuery was commonly used to simplify AJAX calls with its `$.ajax()` method or shorthand methods like `$.get()` and `$.post()`.
-
-#### Example using jQuery's `$.get()`:
-
-```javascript
-$.get('https://jsonplaceholder.typicode.com/posts', function(data) {
-    console.log(data); // Handle the response data
-});
-```
-
-#### Example using jQuery's `$.ajax()`:
-
-```javascript
-$.ajax({
-    url: 'https://jsonplaceholder.typicode.com/posts',
-    method: 'GET',
-    success: function(data) {
-        console.log(data); // Handle the response data
-    },
-    error: function(err) {
-        console.error('Error:', err); // Handle any errors
-    }
-});
-```
-
-### 5. **AJAX with `async/await` (with `fetch()`)**
+### 4. **AJAX with `async/await` (with `fetch()`)**
 
 Using `async` and `await`, we can write asynchronous AJAX requests in a cleaner and more synchronous-looking way.
 
@@ -1321,7 +1325,7 @@ getData();
 - `async` makes the function return a **Promise**.
 - `await` pauses the function execution until the **Promise** is resolved (i.e., when the data has been fetched).
 
-### 6. **AJAX Request Methods**
+### 5. **AJAX Request Methods**
 
 Here are some of the common HTTP methods used in AJAX requests:
 
@@ -1355,7 +1359,7 @@ const postData = async () => {
 postData();
 ```
 
-### 7. **AJAX Responses**
+### 6. **AJAX Responses**
 
 AJAX responses can be in various formats:
 - **JSON**: Commonly used format for exchanging data.
@@ -1373,7 +1377,7 @@ fetch('https://jsonplaceholder.typicode.com/posts')
     });
 ```
 
-### 8. **Handling Errors in AJAX**
+### 7. **Handling Errors in AJAX**
 
 It is crucial to handle errors in AJAX requests, such as network issues or a failure in the API.
 
@@ -1390,13 +1394,13 @@ fetch('https://jsonplaceholder.typicode.com/posts')
 ```
 
 
-### 9. **AJAX Advantages**
+###  **AJAX Advantages**
 
 - **No Page Reload**: It allows you to update parts of a page without reloading the whole page.
 - **Asynchronous**: Improves user experience by allowing other interactions while data is being fetched.
 - **Faster Interaction**: Only the necessary data is requested and displayed, making the web app faster and more efficient.
 
-### 11. **AJAX Disadvantages**
+###  **AJAX Disadvantages**
 
 - **Requires JavaScript**: If the user disables JavaScript, AJAX won’t work.
 - **Security Concerns**: Because AJAX involves sending and receiving data from a server, it can expose certain vulnerabilities if not handled securely.
