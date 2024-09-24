@@ -11,7 +11,6 @@ JavaScript is a lightweight, interpreted, or just-in-time compiled programming l
 7. [JavaScript Iterators](#javascript-iterators)
 8. [Set and Map](#set-and-map)
 9. [Javascript functions](#javascript-functions)
-10. [Classes](#classes)
 11. [Javascript Object](#javascript-object)
 12. [AJAX](#ajax)
 
@@ -1171,10 +1170,181 @@ console.log(example.length); // Output: 2
 These are the foundational details of functions in JavaScript, giving you flexibility to write modular, reusable, and maintainable code. Let me know if you'd like more details or examples!
 
 
-# Classes
-
 
 # Javascript Object
+In JavaScript, an **object** is a collection of properties, where each property consists of a key-value pair. Objects allow you to group related data and functions (called methods in the context of objects) together.
+
+### Defining an Object
+
+You can define an object using object literals or the `new Object()` constructor.
+
+#### 1. **Object Literal Syntax**
+
+This is the most common way to define an object in JavaScript:
+
+```javascript
+let person = {
+  firstName: "John",
+  lastName: "Doe",
+  age: 30,
+  gender: "male",
+  fullName: function() {
+    return this.firstName + " " + this.lastName;
+  }
+};
+```
+
+- **Keys**: `firstName`, `lastName`, `age`, `gender`, `fullName` are keys (properties or methods).
+- **Values**: `"John"`, `"Doe"`, `30`, `"male"`, and the function are the corresponding values.
+
+#### 2. **Using the `new Object()` Constructor**
+
+An alternative way to create an object is by using the `new Object()` constructor.
+
+```javascript
+let person = new Object();
+person.firstName = "John";
+person.lastName = "Doe";
+person.age = 30;
+person.gender = "male";
+person.fullName = function() {
+  return this.firstName + " " + this.lastName;
+};
+```
+
+### Accessing Object Properties
+
+You can access object properties using **dot notation** or **bracket notation**.
+
+#### 1. **Dot Notation**
+
+```javascript
+console.log(person.firstName); // Outputs: John
+console.log(person.fullName()); // Outputs: John Doe
+```
+
+#### 2. **Bracket Notation**
+
+```javascript
+console.log(person["firstName"]); // Outputs: John
+```
+
+- Use bracket notation when the property name is stored in a variable or when the property name has spaces or special characters.
+
+### Modifying Object Properties
+
+You can add, modify, or delete properties from an object.
+
+#### 1. **Adding/Modifying a Property**
+
+```javascript
+person.nationality = "American"; // Adding a new property
+person.age = 31; // Modifying an existing property
+```
+
+#### 2. **Deleting a Property**
+
+```javascript
+delete person.age;
+console.log(person.age); // Outputs: undefined
+```
+
+### Looping Through Object Properties
+
+You can use the `for...in` loop to iterate over all properties of an object.
+
+```javascript
+for (let key in person) {
+  console.log(key + ": " + person[key]);
+}
+```
+
+### Nested Objects
+
+An object can contain other objects.
+
+```javascript
+let employee = {
+  name: "Alice",
+  position: "Developer",
+  address: {
+    street: "123 Main St",
+    city: "New York",
+    country: "USA"
+  }
+};
+
+console.log(employee.address.city); // Outputs: New York
+```
+
+### Methods in Objects
+
+A **method** is a function associated with an object. You can define methods inside an object to perform actions on that object’s data.
+
+```javascript
+let car = {
+  make: "Toyota",
+  model: "Corolla",
+  year: 2022,
+  getCarInfo: function() {
+    return this.year + " " + this.make + " " + this.model;
+  }
+};
+
+console.log(car.getCarInfo()); // Outputs: 2022 Toyota Corolla
+```
+
+### Objects as Function Parameters
+
+Objects can be passed as parameters to functions.
+
+```javascript
+function greet(person) {
+  return "Hello, " + person.firstName + " " + person.lastName;
+}
+
+console.log(greet({ firstName: "Jane", lastName: "Doe" })); // Outputs: Hello, Jane Doe
+```
+
+### JavaScript `this` Keyword
+
+In the context of an object, the `this` keyword refers to the current object.
+
+```javascript
+let person = {
+  firstName: "John",
+  lastName: "Doe",
+  fullName: function() {
+    return this.firstName + " " + this.lastName;
+  }
+};
+
+console.log(person.fullName()); // Outputs: John Doe
+```
+
+### JavaScript Object Methods
+
+JavaScript provides many built-in object methods to work with objects:
+
+- **`Object.keys()`**: Returns an array of a given object’s own property names.
+  ```javascript
+  console.log(Object.keys(person)); // Outputs: ["firstName", "lastName", "fullName"]
+  ```
+
+- **`Object.values()`**: Returns an array of the values of the object’s own properties.
+  ```javascript
+  console.log(Object.values(person)); // Outputs: ["John", "Doe", function...]
+  ```
+
+- **`Object.assign()`**: Copies the values of all enumerable properties from one or more source objects to a target object.
+  ```javascript
+  let person2 = Object.assign({}, person);
+  ```
+
+- **`Object.entries()`**: Returns an array of a given object’s key-value pairs.
+  ```javascript
+  console.log(Object.entries(person)); // Outputs: [["firstName", "John"], ["lastName", "Doe"], ...]
+  ```
 
 # AJAX
 AJAX is a developer's dream, because you can:
