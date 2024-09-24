@@ -17,6 +17,7 @@ JavaScript is a lightweight, interpreted, or just-in-time compiled programming l
 
 
 # Data types
+[🔝](#table-of-contents)
 
 JavaScript has several data types, which are broadly divided into two categories: 
 - **Primitive Data Types**
@@ -168,6 +169,7 @@ null === undefined    // false
 
 ```
 # JavaScript Type Conversion
+[🔝](#table-of-contents)
 In JavaScript, **type conversion** refers to changing the type of a value from one data type to another. JavaScript performs type conversion in two ways:
 
 1. **Implicit (Automatic) Conversion**: JavaScript automatically converts data types based on context.
@@ -359,6 +361,8 @@ console.log(boolStr); // Output: true (non-empty string is truthy)
 
 
 # JavaScript  Variables
+[🔝](#table-of-contents)
+
  Variables are Containers for Storing Data.
 
 JavaScript Variables can be declared in 4 ways:
@@ -469,6 +473,7 @@ console.log(obj.name);  // Output: Bob
 - **Use `let`** when you know the value of the variable will change during the program (e.g., loop counters, state values that are modified over time).
 
 # spread operator
+[🔝](#table-of-contents)
 
 The **spread operator** (`...`) in JavaScript is a powerful tool for working with arrays and other iterable objects. It allows you to expand elements from an array or object into individual elements or properties. Here's how you can use the spread operator with arrays:
 
@@ -518,6 +523,7 @@ console.log(rest);  // Output: [3, 4, 5]
 ```
 
 # JavaScript Dates
+[🔝](#table-of-contents)
 
     -   JavaScript provides the `Date` object for working with dates and times.
     -   A `Date` object represents a single moment in time in a platform-independent format.
@@ -680,6 +686,8 @@ console.log(pastDate.format('YYYY-MM-DD'));  // Output: Date 1 month ago
 
 
 # JavaScript Iterators
+[🔝](#table-of-contents)
+
 Let's go over the different types of loops and array methods in JavaScript, step by step:
 
 ### 1. **`for` Loop**
@@ -864,6 +872,8 @@ This prints `1`, `2`, `3`, and `4` to the console but doesn't return a new array
 These loops and array methods are essential in JavaScript, offering flexibility for iterating over data, processing collections, and controlling loop execution.
 
 # Set and Map
+[🔝](#table-of-contents)
+
 ## JavaScript `Set`
 A **Set** is a collection of **unique values**. Unlike arrays, Sets do not allow duplicate values, and they provide a faster way to check for the existence of a value in the collection.
 
@@ -997,6 +1007,7 @@ console.log(myMap.size);  // Output: 0
 Both `Set` and `Map` are versatile and can be used for different use cases where unique values or key-value pair storage is needed.
 
 # Javascript functions
+[🔝](#table-of-contents)
 
 A **function** is a block of code designed to perform a particular task. You can think of it as a subprogram that can be executed whenever it is called (or invoked).
 
@@ -1184,6 +1195,8 @@ console.log(example.length); // Output: 2
 
 
 # Javascript Object
+[🔝](#table-of-contents)
+
 In JavaScript, an **object** is a collection of properties, where each property consists of a key-value pair. Objects allow you to group related data and functions (called methods in the context of objects) together.
 
 ### Defining an Object
@@ -1359,6 +1372,8 @@ JavaScript provides many built-in object methods to work with objects:
   ```
 
 # AJAX
+[🔝](#table-of-contents)
+
 AJAX is a developer's dream, because you can:
 
 - Read data from a web server - after the page has loaded
