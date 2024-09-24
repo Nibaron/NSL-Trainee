@@ -170,6 +170,7 @@ null === undefined    // false
 ```
 # JavaScript Type Conversion
 [🔝](#table-of-contents)
+
 In JavaScript, **type conversion** refers to changing the type of a value from one data type to another. JavaScript performs type conversion in two ways:
 
 1. **Implicit (Automatic) Conversion**: JavaScript automatically converts data types based on context.
@@ -1182,16 +1183,103 @@ function add(a, b) {
 }
 ```
 
-### 11. **Function Properties (Methods)**
-
-Functions are objects in JavaScript, so they can have properties and methods, like `.length` (number of parameters) and `.name` (function name).
-
+### 11. `call()`
+- **Purpose**: Immediately invokes the function, with the first argument being the value for `this` and subsequent arguments passed individually.
+  
 ```javascript
-function example(a, b) {}
-console.log(example.length); // Output: 2
+const person = {
+    firstName: 'Nibaron',
+    lastName: 'Kumar',
+};
+
+function greet(greeting, punctuation) {
+    console.log(`${greeting}, ${this.firstName} ${this.lastName}${punctuation}`);
+}
+
+// Using call to set `this`
+greet.call(person, 'Hello', '!');
+```
+
+#### Explanation:
+- `greet.call(person, 'Hello', '!')` sets `this` to the `person` object and passes `'Hello'` and `'!'` as arguments to the `greet` function.
+- The output would be: `Hello, Nibaron Kumar!`
+
+### use case
+Borrowing methods from one object to another, where the method is not directly available.
+```js
+const person1 = {
+    firstName: 'Nibaron',
+    lastName: 'Kumar',
+    getFullName() {
+        return `${this.firstName} ${this.lastName}`;
+    }
+};
+
+const person2 = {
+    firstName: 'Rudra',
+    lastName: 'Sarkar'
+};
+
+// Using `call()` to borrow the method from `person1`
+console.log(person1.getFullName.call(person2)); // Output: Rudra Sarkar
 ```
 
 ---
+
+### 12. `apply()`
+- **Purpose**: Similar to `call()`, but arguments are passed as an array.
+  
+```javascript
+const person = {
+    firstName: 'Nibaron',
+    lastName: 'Kumar',
+};
+
+function greet(greeting, punctuation) {
+    console.log(`${greeting}, ${this.firstName} ${this.lastName}${punctuation}`);
+}
+
+// Using apply to set `this` and pass arguments as an array
+greet.apply(person, ['Hi', '!!']);
+```
+
+#### Explanation:
+- `greet.apply(person, ['Hi', '!!'])` sets `this` to the `person` object and passes `'Hi'` and `'!!'` as arguments in an array.
+- The output would be: `Hi, Nibaron Kumar!!`
+
+---
+
+### 13. `bind()`
+- **Purpose**: Does not immediately invoke the function. Instead, it returns a new function with the `this` value set to the specified object. You can call the new function later.
+
+```javascript
+const person = {
+    firstName: 'Nibaron',
+    lastName: 'Kumar',
+};
+
+function greet(greeting, punctuation) {
+    console.log(`${greeting}, ${this.firstName} ${this.lastName}${punctuation}`);
+}
+
+// Using bind to create a new function with `this` bound to `person`
+const greetPerson = greet.bind(person, 'Greetings', '!!!');
+
+// Now we can call the new function later
+greetPerson();
+```
+
+#### Explanation:
+- `greet.bind(person, 'Greetings', '!!!')` returns a new function `greetPerson`, where `this` is bound to the `person` object and `'Greetings'` and `'!!!'` are passed as arguments.
+- When `greetPerson()` is called, the output is: `Greetings, Nibaron Kumar!!!`
+
+---
+
+### Summary:
+- **`call()`**: Immediately calls the function, passing arguments individually.
+- **`apply()`**: Immediately calls the function, passing arguments as an array.
+- **`bind()`**: Returns a new function with the context bound to the provided object, but doesn't call it immediately.
+
 
 
 # Javascript Object
