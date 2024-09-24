@@ -923,52 +923,8 @@ function multiply(a, b = 2) {
 console.log(multiply(3)); // Output: 6
 ```
 
-### 4. **Return Statement**
 
-The `return` statement is used to return a value from a function. Once a function reaches a `return` statement, it stops executing further code inside the function.
-
-```javascript
-function subtract(a, b) {
-    return a - b;
-}
-
-console.log(subtract(10, 4)); // Output: 6
-```
-
-If no `return` statement is used, the function returns `undefined`.
-
-### 5. **Function Invocation (Calling a Function)**
-
-To **invoke** a function means to call it so that its code is executed. You call a function using parentheses.
-
-```javascript
-functionName(arguments);
-```
-
-Example:
-
-```javascript
-function greet() {
-    return 'Hello';
-}
-
-console.log(greet()); // Output: Hello
-```
-
-### 6. **Function Scope**
-
-JavaScript has function scope, meaning variables declared inside a function are not accessible outside of it.
-
-```javascript
-function myFunction() {
-    let x = 5; // x is local to the function
-    console.log(x);
-}
-
-console.log(x); // Error: x is not defined
-```
-
-### 7. **Anonymous Functions**
+### 4. **Anonymous Functions**
 
 Anonymous functions are functions without a name. They are often used as arguments for other functions, such as callbacks.
 
@@ -978,7 +934,7 @@ setTimeout(function() {
 }, 1000);
 ```
 
-### 8. **Immediately Invoked Function Expression (IIFE)**
+### 5. **Immediately Invoked Function Expression (IIFE)**
 
 An **IIFE** is a function that runs as soon as it is defined. It helps create a private scope and avoid polluting the global namespace.
 
@@ -988,7 +944,7 @@ An **IIFE** is a function that runs as soon as it is defined. It helps create a 
 })();
 ```
 
-### 9. **Higher-Order Functions**
+### 6. **Higher-Order Functions**
 
 A **higher-order function** is a function that can take other functions as arguments or return a function.
 
@@ -1005,7 +961,7 @@ const greeting = sayHello();
 greeting(); // Output: Hello!
 ```
 
-### 10. **Callback Functions**
+### 7. **Callback Functions**
 
 A **callback** is a function passed into another function as an argument. Callbacks are used for asynchronous operations like handling responses from a server.
 
@@ -1021,41 +977,7 @@ setTimeout(function() {
 }, 3000);
 ```
 
-### 11. **Closures**
-
-A **closure** is created when a function remembers its lexical environment, allowing it to access variables from its outer scope even after that scope has returned.
-
-```javascript
-function outerFunction() {
-    let outerVariable = 'I am outside!';
-
-    function innerFunction() {
-        console.log(outerVariable); // It still has access to the outerVariable
-    }
-
-    return innerFunction;
-}
-
-const innerFunc = outerFunction();
-innerFunc(); // Output: I am outside!
-```
-
-### 12. **Recursion**
-
-Recursion is a technique where a function calls itself in order to solve a problem.
-
-```javascript
-function factorial(n) {
-    if (n === 0) {
-        return 1;
-    }
-    return n * factorial(n - 1);
-}
-
-console.log(factorial(5)); // Output: 120
-```
-
-### 13. **Rest Parameters (ES6)**
+### 8. **Rest Parameters (ES6)**
 
 Rest parameters allow a function to accept an indefinite number of arguments as an array.
 
@@ -1067,7 +989,7 @@ function sum(...numbers) {
 console.log(sum(1, 2, 3, 4)); // Output: 10
 ```
 
-### 14. **Spread Operator (ES6)**
+### 9. **Spread Operator (ES6)**
 
 The spread operator can be used to pass elements of an array as individual arguments to a function.
 
@@ -1076,30 +998,7 @@ const numbers = [1, 2, 3, 4];
 console.log(Math.max(...numbers)); // Output: 4
 ```
 
-### 15. **Arrow Functions vs. Regular Functions (Lexical `this`)**
-
-Arrow functions differ from regular functions in how they treat the `this` keyword. In regular functions, `this` refers to the object that called the function, while in arrow functions, `this` is lexically bound to the surrounding context.
-
-```javascript
-function regularFunction() {
-    console.log(this); // The context depends on how the function is called
-}
-
-const arrowFunction = () => {
-    console.log(this); // `this` is the surrounding context where the function is defined
-};
-```
-
-### 16. **Function Constructor**
-
-JavaScript functions can also be created using the `Function` constructor, but this method is rarely used due to potential security and performance issues.
-
-```javascript
-const add = new Function('a', 'b', 'return a + b');
-console.log(add(2, 3)); // Output: 5
-```
-
-### 17. **Pure Functions**
+### 10. **Pure Functions**
 
 A **pure function** always produces the same output for the same input and has no side effects.
 
@@ -1109,7 +1008,7 @@ function add(a, b) {
 }
 ```
 
-### 18. **Function Properties (Methods)**
+### 11. **Function Properties (Methods)**
 
 Functions are objects in JavaScript, so they can have properties and methods, like `.length` (number of parameters) and `.name` (function name).
 
@@ -1119,9 +1018,6 @@ console.log(example.length); // Output: 2
 ```
 
 ---
-
-These are the foundational details of functions in JavaScript, giving you flexibility to write modular, reusable, and maintainable code. Let me know if you'd like more details or examples!
-
 
 
 # Javascript Object
