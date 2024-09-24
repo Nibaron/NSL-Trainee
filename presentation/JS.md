@@ -597,7 +597,7 @@ console.log(rest);  // Output: [3, 4, 5]
     ```js
     let date = new Date();
     date.setDate(date.getDate() + 5); // Add 5 days
-    console.log(date);
+    console.log(date); //2024-09-29T08:35:52.568Z
     ``` 
     
 
@@ -606,15 +606,12 @@ console.log(rest);  // Output: [3, 4, 5]
 
     
 -   **`Date.now()`**: Returns the current timestamp (number of milliseconds since January 1, 1970).
--   You can convert a date object to a timestamp using `.getTime()`.
+
 -   **Example**:
 
     ```js
     let timestamp = Date.now();
-    console.log(timestamp); // Current timestamp in milliseconds
-      
-    let date = new Date();
-    console.log(date.getTime()); // Timestamp of the current date
+    console.log(timestamp); //1727166973825
     ``` 
 JavaScript provides its built-in `Date` object to handle dates and times, but many developers prefer using libraries like **Moment.js** due to its ease of use and additional functionality. Let's compare the two in detail:
 
