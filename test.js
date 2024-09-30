@@ -95,6 +95,17 @@
 //   let text = Object.entries(person);
 //   console.log(text);
 
-const numbers = [1, 11, 2, 20, 3, 4, 4, 5];
-numbers.sort((a,b)=> b-a);
-console.log(numbers)
+// const numbers = [1, 11, 2, 20, 3, 4, 4, 5];
+// numbers.sort((a,b)=> b-a);
+// console.log(numbers)
+
+// const originalArray = [1, 2, 3, 4,[5,6]];
+// //const copiedArray = [...originalArray];
+// const copiedArray = JSON.parse(JSON.stringify(originalArray));
+// copiedArray[4][0]=10;
+// copiedArray[0]=50;
+// console.log(copiedArray);  // Output: [1, 2, 3, 4]
+// console.log(originalArray)
+
+let currentDate = new Date();
+console.log(currentDate);
