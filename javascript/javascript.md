@@ -409,7 +409,7 @@ Type conversion is important to understand in JavaScript, especially because of 
 
 
 
-# JavaScript  Variables
+# JavaScript Variables
 [🔝](#table-of-contents)
 
 Variables are Containers for Storing Data.
@@ -877,6 +877,242 @@ The spread operator (`...`) provides a convenient way to work with arrays, inclu
 
 # Javascript String
 [🔝](#table-of-contents)
+
+
+### 1. **What is a String?**
+
+In JavaScript, a string is a sequence of characters enclosed in single (`' '`), double (`" "`), or backticks (\` \`).
+
+Example:
+```js
+let str1 = 'Hello World';
+let str2 = "Hello World";
+let str3 = `Hello World`; // Template literals
+```
+
+### 2. **String Properties**
+
+- **`length`**: This property returns the length of a string.
+
+```js
+let str = 'JavaScript';
+console.log(str.length); // Output: 10
+```
+
+### 3. **String Methods**
+
+JavaScript provides numerous built-in methods for string manipulation.
+
+#### 3.1. **Finding and Extracting Substrings**
+
+- **`indexOf()`**: Returns the index of the first occurrence of a substring. Returns `-1` if not found.
+```js
+let str = "Hello, world!";
+console.log(str.indexOf('world')); // Output: 7
+```
+
+- **`lastIndexOf()`**: Returns the last occurrence of a substring.
+```js
+let str = "Hello, world, hello!";
+console.log(str.lastIndexOf('hello')); // Output: 13
+```
+
+- **`includes()`**: Checks if a string contains a substring.
+```js
+let str = "JavaScript";
+console.log(str.includes("Script")); // Output: true
+```
+
+- **`startsWith()`** and **`endsWith()`**: Check if a string starts or ends with a specific substring.
+```js
+let str = "JavaScript";
+console.log(str.startsWith("Java")); // true
+console.log(str.endsWith("Script")); // true
+```
+
+#### 3.2. **Extracting Substrings**
+
+- **`slice()`**: Extracts a part of a string and returns it as a new string.
+```js
+let str = "JavaScript";
+console.log(str.slice(0, 4)); // Output: "Java"
+```
+
+- **`substring()`**: Similar to `slice()`, but doesn’t accept negative indices.
+```js
+let str = "JavaScript";
+console.log(str.substring(0, 4)); // Output: "Java"
+```
+
+- **`substr()`**: Similar to `slice()`, but the second parameter specifies the length of the extracted part (deprecated, prefer `slice()`).
+```js
+let str = "JavaScript";
+console.log(str.substr(4, 6)); // Output: "Script"
+```
+
+#### 3.3. **Changing Case**
+
+- **`toUpperCase()`**: Converts all characters to uppercase.
+```js
+let str = "hello";
+console.log(str.toUpperCase()); // Output: "HELLO"
+```
+
+- **`toLowerCase()`**: Converts all characters to lowercase.
+```js
+let str = "HELLO";
+console.log(str.toLowerCase()); // Output: "hello"
+```
+
+#### 3.4. **Replacing Parts of a String**
+
+- **`replace()`**: Replaces a specified value with another in a string. By default, replaces the first occurrence.
+```js
+let str = "Hello World";
+console.log(str.replace("World", "JavaScript")); // Output: "Hello JavaScript"
+```
+
+- **`replaceAll()`**: Replaces all occurrences of a substring (introduced in ES2021).
+```js
+let str = "apple, apple, apple";
+console.log(str.replaceAll("apple", "orange")); // Output: "orange, orange, orange"
+```
+
+#### 3.5. **Trimming**
+
+- **`trim()`**: Removes whitespace from both sides of a string.
+```js
+let str = "   Hello World   ";
+console.log(str.trim()); // Output: "Hello World"
+```
+
+- **`trimStart()`** / **`trimEnd()`**: Removes whitespace from the start or end of a string.
+```js
+let str = "   Hello World   ";
+console.log(str.trimStart()); // Output: "Hello World   "
+console.log(str.trimEnd());   // Output: "   Hello World"
+```
+
+#### 3.6. **Splitting Strings**
+
+- **`split()`**: Splits a string into an array of substrings.
+```js
+let str = "apple, banana, cherry";
+let arr = str.split(", ");
+console.log(arr); // Output: ["apple", "banana", "cherry"]
+```
+
+### 4. **Template Literals (ES6)**
+
+Template literals are strings enclosed in backticks (\` \`) that allow for embedded expressions and multiline strings.
+
+- **Interpolation**: You can embed expressions inside `${}` within template literals.
+```js
+let name = "Nibaron";
+let greeting = `Hello, ${name}!`;
+console.log(greeting); // Output: "Hello, Nibaron!"
+```
+
+- **Multiline Strings**: Template literals allow for easy creation of multiline strings.
+```js
+let multilineStr = `This is
+a multiline
+string.`;
+console.log(multilineStr);
+```
+
+### 5. **Escaping Characters**
+
+Some characters in JavaScript strings have special meanings, so they need to be escaped using a backslash (`\`).
+
+```js
+let str = 'It\'s a great day!';
+console.log(str); // Output: It's a great day!
+```
+
+Common escaped characters:
+- `\'` for single quote
+- `\"` for double quote
+- `\\` for backslash
+- `\n` for new line
+- `\t` for tab
+
+### 6. **String Iteration and Character Access**
+
+- **Accessing Characters**: You can access individual characters using bracket notation or `charAt()`.
+```js
+let str = "Hello";
+console.log(str[0]);    // Output: "H"
+console.log(str.charAt(0)); // Output: "H"
+```
+
+- **Iterating Through a String**: You can use a `for...of` loop to iterate over characters in a string.
+```js
+let str = "Hello";
+for (let char of str) {
+    console.log(char);
+}
+```
+
+### 7. **Advanced Techniques**
+
+#### 7.1. **Using Regular Expressions**
+
+Strings can be manipulated using **regular expressions** (RegExp).
+
+- **Test for a Match**:
+```js
+let str = "I love JavaScript";
+let pattern = /love/;
+console.log(pattern.test(str)); // Output: true
+```
+
+- **Find Match(es)**:
+```js
+let str = "JavaScript is awesome. JavaScript is powerful.";
+let pattern = /JavaScript/g;
+console.log(str.match(pattern)); // Output: ["JavaScript", "JavaScript"]
+```
+
+- **Replace Using RegExp**:
+```js
+let str = "123-456-789";
+let newStr = str.replace(/\d/g, "X");
+console.log(newStr); // Output: "XXX-XXX-XXX"
+```
+
+#### 7.2. **String Padding**
+
+- **`padStart()`**: Pads the string at the beginning.
+```js
+let str = "5";
+console.log(str.padStart(3, "0")); // Output: "005"
+```
+
+- **`padEnd()`**: Pads the string at the end.
+```js
+let str = "5";
+console.log(str.padEnd(3, "0")); // Output: "500"
+```
+
+### 8. **String Immutability**
+
+Strings in JavaScript are **immutable**, which means once a string is created, it cannot be changed. Instead, you create new strings when modifying them.
+
+```js
+let str = "Hello";
+str[0] = "J"; // This will not change the string
+console.log(str); // Output: "Hello"
+```
+
+To modify a string, you create a new one:
+
+```js
+let newStr = "J" + str.slice(1);
+console.log(newStr); // Output: "Jello"
+```
+
+
 
 
 
