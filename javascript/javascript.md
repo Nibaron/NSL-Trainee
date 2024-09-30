@@ -1708,7 +1708,278 @@ greetPerson();
 
 
 # Classes
+[🔝](#table-of-contents)
 
+JavaScript introduced the `class` syntax in ECMAScript 6 (ES6) to offer a cleaner and more understandable way to work with objects and inheritance compared to the traditional prototype-based inheritance.
+
+### 1. **What is a Class?**
+
+A class is a blueprint for creating objects. It can contain properties and methods to be shared by the objects it creates.
+
+#### Basic Syntax:
+```js
+class ClassName {
+  constructor(property1, property2) {
+    this.property1 = property1;
+    this.property2 = property2;
+  }
+
+  method1() {
+    console.log('Method 1 executed');
+  }
+
+  method2() {
+    console.log('Method 2 executed');
+  }
+}
+```
+
+#### Example:
+```js
+class Car {
+  constructor(brand, model) {
+    this.brand = brand;
+    this.model = model;
+  }
+
+  startEngine() {
+    console.log(`${this.brand} ${this.model} engine started!`);
+  }
+}
+
+let myCar = new Car("Toyota", "Corolla");
+myCar.startEngine(); // Output: "Toyota Corolla engine started!"
+```
+
+### 2. **Class Constructor**
+
+The `constructor` method is a special method that is used to initialize an object's properties when a new object is created.
+
+- **Constructor Example**:
+```js
+class Person {
+  constructor(name, age) {
+    this.name = name;
+    this.age = age;
+  }
+
+  introduce() {
+    console.log(`Hello, my name is ${this.name} and I'm ${this.age} years old.`);
+  }
+}
+
+let person1 = new Person("Nibaron", 25);
+person1.introduce(); // Output: "Hello, my name is Nibaron and I'm 25 years old."
+```
+
+### 3. **Adding Methods to a Class**
+
+Methods can be added inside the class declaration, and they are automatically added to the prototype of the class. This ensures that they are shared across instances, saving memory.
+
+#### Example:
+```js
+class Animal {
+  constructor(name) {
+    this.name = name;
+  }
+
+  speak() {
+    console.log(`${this.name} makes a sound.`);
+  }
+}
+
+let dog = new Animal('Dog');
+dog.speak(); // Output: "Dog makes a sound."
+```
+
+### 4. **Inheritance**
+
+Classes can inherit from other classes using the `extends` keyword. This allows the child class to inherit properties and methods from the parent class.
+
+#### Example:
+```js
+class Animal {
+  constructor(name) {
+    this.name = name;
+  }
+
+  speak() {
+    console.log(`${this.name} makes a sound.`);
+  }
+}
+
+class Dog extends Animal {
+  constructor(name, breed) {
+    super(name); // Calls the constructor of the parent class
+    this.breed = breed;
+  }
+
+  bark() {
+    console.log(`${this.name} barks!`);
+  }
+}
+
+let myDog = new Dog('Rex', 'Golden Retriever');
+myDog.speak(); // Output: "Rex makes a sound."
+myDog.bark();  // Output: "Rex barks!"
+```
+
+### 5. **Overriding Methods**
+
+The child class can override methods from the parent class.
+
+#### Example:
+```js
+class Animal {
+  constructor(name) {
+    this.name = name;
+  }
+
+  speak() {
+    console.log(`${this.name} makes a sound.`);
+  }
+}
+
+class Cat extends Animal {
+  speak() {
+    console.log(`${this.name} meows.`);
+  }
+}
+
+let myCat = new Cat('Whiskers');
+myCat.speak(); // Output: "Whiskers meows."
+```
+
+### 6. **Getters and Setters**
+
+Getters and setters allow you to define object properties that are computed or controlled when being accessed or set.
+
+#### Example:
+```js
+class Rectangle {
+  constructor(height, width) {
+    this.height = height;
+    this.width = width;
+  }
+
+  get area() {
+    return this.height * this.width;
+  }
+
+  set area(value) {
+    console.log("You cannot set the area directly!");
+  }
+}
+
+let myRectangle = new Rectangle(5, 10);
+console.log(myRectangle.area); // Output: 50
+myRectangle.area = 100;        // Output: "You cannot set the area directly!"
+```
+
+### 7. **Static Methods**
+
+Static methods are called on the class itself, not on instances of the class. These methods are often used for utility functions.
+
+#### Example:
+```js
+class Calculator {
+  static add(a, b) {
+    return a + b;
+  }
+}
+
+console.log(Calculator.add(5, 3)); // Output: 8
+```
+
+### 8. **Private Properties and Methods (ES2022)**
+
+JavaScript introduced the concept of private properties and methods, which are prefixed with a `#`. These are not accessible outside the class.
+
+#### Example:
+```js
+class BankAccount {
+  #balance = 0;
+
+  deposit(amount) {
+    this.#balance += amount;
+  }
+
+  getBalance() {
+    return this.#balance;
+  }
+}
+
+let myAccount = new BankAccount();
+myAccount.deposit(100);
+console.log(myAccount.getBalance()); // Output: 100
+console.log(myAccount.#balance); // Error: Private field '#balance' must be declared in an enclosing class
+```
+
+### 9. **Class Fields (Public Fields)**
+
+Public fields can be declared outside the constructor and assigned default values. These properties are set directly on the instance.
+
+#### Example:
+```js
+class User {
+  name = "Anonymous";
+  age = 0;
+
+  introduce() {
+    console.log(`Hi, I'm ${this.name} and I'm ${this.age} years old.`);
+  }
+}
+
+let user1 = new User();
+user1.introduce(); // Output: "Hi, I'm Anonymous and I'm 0 years old."
+```
+
+### 10. **Example: A Practical Use Case**
+
+Let's create a simple class structure to demonstrate how you can combine multiple features of classes.
+
+```js
+class Product {
+  constructor(name, price) {
+    this.name = name;
+    this.price = price;
+  }
+
+  details() {
+    return `Product: ${this.name}, Price: $${this.price}`;
+  }
+}
+
+class DiscountProduct extends Product {
+  constructor(name, price, discount) {
+    super(name, price);
+    this.discount = discount;
+  }
+
+  details() {
+    const discountedPrice = this.price - (this.price * this.discount) / 100;
+    return `Product: ${this.name}, Price after discount: $${discountedPrice}`;
+  }
+}
+
+let regularProduct = new Product("Phone", 600);
+let discountedProduct = new DiscountProduct("Laptop", 1000, 10);
+
+console.log(regularProduct.details()); // Output: "Product: Phone, Price: $600"
+console.log(discountedProduct.details()); // Output: "Product: Laptop, Price after discount: $900"
+```
+
+### 11. **Summary**
+
+- **Classes**: A blueprint for creating objects.
+- **Constructor**: A special method for initializing an object’s properties.
+- **Methods**: Functions defined inside a class to be shared by all instances.
+- **Inheritance**: Allows a class to inherit properties and methods from another class.
+- **Getters/Setters**: Control how properties are accessed and modified.
+- **Static Methods**: Utility methods defined on the class itself.
+- **Private Fields**: Properties and methods accessible only within the class.
+
+---
 
 # Javascript Object
 [🔝](#table-of-contents)
